@@ -1,0 +1,16 @@
+.selectorWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.selector {
+    padding: 4px 8px;
+    font-size: 14px;
+    width: 59px;
+    height: 30px;
+    border: 1px solid #717171;
+    border-radius: 5px;
+    font-size: 17px;
+    align-items: center;
+}

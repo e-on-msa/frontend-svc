@@ -1,0 +1,190 @@
+.viewNavigator {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--color-background);
+    border-radius: 5px;
+}
+
+.left {
+    display: flex;
+    align-items: baseline; /* 기준선(baseline) 정렬 */
+    position: relative;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000000;
+    /* margin-left: 30px; */
+    margin-right: 5px;
+    line-height: 1;
+}
+
+.name_region {
+        font-size: 22px;
+    font-weight: bold;
+    color: #000000;
+    margin-left: 30px;
+    margin-right: 5px;
+    line-height: 1;
+}
+
+.text {
+    font-size: 14px;
+    color: #000000;
+    margin-right: 5px;
+    line-height: 1.1;
+}
+
+.selectGrade {
+    display: flex;
+    align-items: baseline; /* select와 텍스트도 밑줄 맞춤 */
+    gap: 4px;
+    margin-left: 5px;
+}
+
+.select {
+    width: 55px;
+    height: 27px;
+    font-size: 17px;
+    text-align: center;
+    border: solid 1px #717171;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.selectText {
+    font-size: 17px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.star {
+    margin-right: 8px;
+    margin-left: 30px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.7s ease;
+    display: flex;
+    align-items: center;
+
+    /* 중심 정렬 */
+    position: relative;
+    top: 50%;
+    transform: translateY(13%);
+}
+
+/*
+
+.left {
+    display: flex;
+    align-items: flex-end;
+}
+
+.name {
+    margin-left: 35px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000000;
+    margin-right: 5px;
+    line-height: 1;
+}
+
+.text {
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.1;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.selectGrade {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 5px;
+}
+
+.select {
+    width: 55px;
+    height: 27px;
+    font-size: 17px;
+    text-align: center;
+    border: solid 1px #717171;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.selectText {
+    height: 27px;
+    font-size: 17px;
+    line-height: 1;
+    margin: 0;
+    margin-top: 3px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+} */
+
+.viewRadio {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    align-self: center; /* 전체 흐름에서는 중앙 정렬 */
+    margin-right: 30px;
+}
+
+.viewRadio,
+.viewRadio label {
+    font-size: 14px;
+}
+
+.viewRadio label {
+    margin-left: 8px; /* 원하는 만큼 조절 */
+}
+
+.viewRadio [type="radio"] {
+    position: relative;
+    margin-right: 7px;
+    vertical-align: middle;
+    appearance: none;
+    border: 1px solid #3398ff;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    transition: border 0.5s ease-in-out;
+}
+
+.viewRadio [type="radio"]:checked {
+    background-color: #e6f3ff;
+    border: 1px solid #3398ff;
+}
+
+.viewRadio [type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: #3398ff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chooseYearView {
+    color: #626262;
+    font-size: 11px;
+    margin-left: 10px;
+    text-decoration-line: underline;
+    cursor: pointer;
+}

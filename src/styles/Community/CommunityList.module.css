@@ -1,0 +1,143 @@
+.container {
+    max-width: 1280px;
+    min-height: 100vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.content {
+    font-family: "Pretendard", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 최소 높이: 화면 높이 */
+    /* 내부 내용물 높이에 따라 자동으로 늘어남 */
+    width: 980px;
+    padding: 0px;
+    margin: 0 150px;
+    /* border: 2px solid #ccc; */
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.tab {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 6px 6px 0 0;
+    font-weight: 500;
+    color: #888;
+    cursor: pointer;
+}
+
+.activeTab {
+    background-color: #fff;
+    color: #000;
+    border-bottom: none;
+    font-weight: bold;
+}
+
+.notice {
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 게시글 목록 */
+.postTable {
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+.tableHeader {
+    display: flex;
+    font-weight: bold;
+    padding: 12px 16px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+.tableRow {
+    display: flex;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.columnTitle {
+    flex: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.columnWriter {
+    flex: 2;
+    text-align: center;
+}
+
+.columnTime {
+    flex: 2;
+    text-align: center;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.pageNumber {
+    color: #888;
+    cursor: pointer;
+}
+
+.activePage {
+    font-weight: bold;
+    color: black;
+}
+
+.pageArrow {
+    cursor: pointer;
+    color: #888;
+}
+
+/* 게시판 개설 버튼 */
+.createButton {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* 글쓰기 버튼 */
+.writeButton {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}

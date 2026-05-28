@@ -1,0 +1,88 @@
+/* src/styles/Common/Header.module.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* 반응형을 위해 고정값 대신 100% */
+    max-width: 1280px; /* 원래 최대 너비 유지 */
+    margin: 0 auto;
+    /* height: 140px; */
+    height: 130px;
+}
+
+img {
+    width: 130px;
+    height: auto;
+    margin-right: 30px;
+}
+
+.navContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 70px;
+}
+
+.navList {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+    align-items: center;
+    /* margin-left: 40px; */
+    padding: 0;
+    list-style: none;
+}
+
+.navListLargeGap {
+    margin-left: 40px;
+    gap: 100px;
+}
+
+.navListSmallGap {
+    margin-left: 5px;
+    gap: 75px;
+}
+
+.navItem {
+    display: inline-flex; /* 글자 쪼개짐 방지와 정렬을 위해 flex */
+    align-items: center;
+    white-space: nowrap; /* 텍스트 무조건 한 줄로 */
+    padding-bottom: 5px;
+    font-size: 15px;
+    color: #333;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+
+    /* 버튼 기본 스타일 제거 추가 */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button.navLink {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.notification {
+    width: 36px;
+    height: 36px;
+}
+
+.active {
+    font-weight: 700;
+}
+
+.bellItem {
+  margin-right: -12px;  /* 필요시 조절, 레이아웃에 맞게 미세 튜닝 */
+}
