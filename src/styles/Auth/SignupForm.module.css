@@ -1,0 +1,150 @@
+.container {
+    background: #f7f8fc;
+    min-height: 100vh;
+}
+.signupForm {
+  background-color: white;
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 40px 48px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Pretendard', sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.step {
+  color: #aaa;
+}
+
+.active {
+  color: #4461f2;
+  border-bottom: 2px solid #4461f2;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 12px 0 32px;
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.inlineBtn {
+  background: linear-gradient(to top, #6457DB, #3AADB6);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 30px;
+  white-space: nowrap;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(to top, #6457DB, #3AADB6);
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submitButton:hover {
+  filter: brightness(1.05);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.message {
+  color: green;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.completeText {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.hintText {
+  font-size : 12px;
+  color : #e74c3c;
+  margin-top: 6px;
+}
+
+.termsBox {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 24px;
+}
+
+.link {
+  font-size: 12px;
+  color: #f55b5b;
+  margin-left: 8px;
+  text-decoration: underline;
+}

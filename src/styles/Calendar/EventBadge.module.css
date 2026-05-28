@@ -1,0 +1,51 @@
+.eventBadge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcf2ff;
+    border-left: 6px solid #ba68ce;
+    font-size: 11px;
+    padding: 0 8px;
+    margin-top: 8px;
+    min-height: 25px;
+    height: auto;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.eventTitle {
+    letter-spacing: -0.5px;
+    text-align: center;
+    padding-bottom: 1px;
+    margin: 0 4px;
+    
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: keep-all; /* 단어 단위로만 줄바꿈 */
+    text-align: center;
+}
+
+/* .eventBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcf2ff;
+    border-radius: 10px;
+    font-size: 11px;
+    height: 25px;
+    padding: 0 8px;
+    border-left: 6px solid #ba68ce;
+    margin-top: 8px;
+}
+
+.eventTitle {
+    letter-spacing: -0.5px;
+    text-align: center;
+    padding-bottom: 1px;
+    margin: 0 4px;
+
+    display: inline;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+} */

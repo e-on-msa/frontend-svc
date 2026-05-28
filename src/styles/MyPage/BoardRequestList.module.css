@@ -1,0 +1,95 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: center;
+}
+
+.tableContainer {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 3fr 1.2fr 1fr;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  text-align: center;
+}
+
+.tableHeader {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.tableRow:hover {
+  background-color: #fafafa;
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+}
+
+.reason {
+  white-space: pre-wrap;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.actionCell {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.approveBtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.rejectBtn {
+  background-color: #f44336;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.approved {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.rejected {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}

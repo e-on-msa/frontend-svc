@@ -1,0 +1,50 @@
+.academicEventsList {
+    margin-top: 32px;
+    font-family: "Noto Sans KR", sans-serif;
+    padding: 0 40px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.eventRows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eventRow {
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    height: 50px;
+}
+
+.day {
+    width: 50px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 16px;
+    position: relative;
+}
+
+.verticalLine {
+    width: 1px;
+    background-color: #bbb;
+    height: 100%; /* 부모 높이에 맞게 */
+    min-height: 24px; /* fallback 높이 */
+    margin-right: 16px;
+}
+
+.content {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #333;
+    padding-top: 2px;
+}

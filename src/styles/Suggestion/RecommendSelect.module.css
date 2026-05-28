@@ -1,0 +1,75 @@
+.container {
+    max-width: 1280px; /* 데스크탑 기준 넓이 제한 */
+    min-height: 100vh; /* 최소 화면 높이 (viewport) */
+    margin: 0 auto; /* 가운데 정렬 */
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 최소 높이: 화면 높이 */
+    /* 내부 내용물 높이에 따라 자동으로 늘어남 */
+    width: 980px;
+    padding: 0px;
+    margin: 0 150px;
+    /* border: 2px solid #ccc; */
+}
+
+.contentArea {
+    max-width: 960px;
+    margin-top: 35px;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.buttonCard {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    padding: 16px 14px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateY(0);
+    box-sizing: border-box;
+}
+
+.buttonCard:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.active {
+    background: #f0f9ff;
+    border: 1px solid #38bdf8;
+}
+
+.title {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.desc {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.4;
+}

@@ -1,0 +1,83 @@
+.container {
+    max-width: 1280px; /* 데스크탑 기준 넓이 제한 */
+    min-height: 100vh; /* 최소 화면 높이 (viewport) */
+    margin: 0 auto; /* 가운데 정렬 */
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.content {
+    font-family: "Pretendard", sans-serif;
+    max-width: 860px;
+    margin: 0 auto;
+    /* padding: 40px 30px; */
+    background-color: #fff;
+    border-radius: 12px;
+    /* border: 2px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.table {
+    /* margin-top: 30px; */
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th,
+.table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+.addBtn {
+    padding: 8px 16px;
+    background-color: #31a344;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.deleteBtn {
+    padding: 8px 16px;
+    background-color: #d63939;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.addBtn:hover:enabled {
+    background-color: #69ce7a;
+}
+
+.deleteBtn:hover:enabled {
+    background-color: #e06f6f;
+}
+
+/* .button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+} */

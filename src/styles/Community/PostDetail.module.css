@@ -1,0 +1,270 @@
+.container {
+    max-width: 1280px;
+    min-height: 100vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: "Pretendard", sans-serif;
+}
+
+.page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: "Pretendard", sans-serif;
+    background-color: #fff;
+}
+
+.header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.meta {
+    color: #888;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.author {
+    margin-right: 30px;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    min-height: 300px;
+    white-space: pre-wrap;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 5px;
+    flex-grow: 1;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.editBtn,
+.deleteBtn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.editBtn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.deleteBtn {
+    background-color: #f44336;
+    color: white;
+}
+
+.commentsSection {
+    border-top: 1px solid #ddd;
+    padding-top: 24px;
+}
+
+.commentsTitle {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.commentList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.commentItem {
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+}
+
+
+.commentInfo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.commentActions {
+    display: flex;
+    gap: 6px;
+}
+
+.commentContent {
+    margin-top: 4px;
+    font-size: 15px;
+}
+
+.noComments {
+    color: #999;
+}
+
+.commentForm {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.commentTextarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    font-family: inherit;
+}
+
+.commentButton {
+    align-self: flex-end;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+.commentTextarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    margin-top: 8px;
+}
+
+.commentButtonGroup {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.commentEditBtn {
+    margin-left: 20px;
+}
+
+.commentEditBtn,
+.commentDeleteBtn,
+.commentSaveBtn,
+.commentCancelBtn {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.commentEditBtn:hover,
+.commentDeleteBtn:hover,
+.commentSaveBtn:hover,
+.commentCancelBtn:hover {
+    background-color: #ddd;
+}
+
+.commentEditTextarea {
+    resize: none;
+}
+
+.commentSaveBtn {
+    margin-right: 10px;
+}
+
+.editPostTitleInput {
+    width: 80%;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f7f8fc;
+    color: #2d2d2d;
+    font-family: "Pretendard", sans-serif;
+}
+
+.editPostContentTextarea {
+    width: 100%;
+    height: 200px;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f7f8fc;
+    resize: vertical;
+    color: #2d2d2d;
+    font-family: "Pretendard", sans-serif;
+}
+
+.commentEditTextarea {
+    width: 86%;
+    height: 20px;
+    padding: 0.5rem;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #f7f8fc;
+    resize: vertical;
+    color: #2d2d2d;
+    font-family: "Pretendard", sans-serif;
+}
+
+.commentEditBox {
+    display: flex;
+    align-items: center;
+}
+
+.commentSaveBtn {
+    margin-left: 10px;
+}
+
+.reportPostWrapper {
+    margin-left: 30px;
+    margin-top: 12px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.gallery img,
+.preview {
+  width: 150px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.reportBtn {
+    margin-left: 30px;
+}

@@ -1,0 +1,52 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-left: 10px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.tableContainer {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 2fr 1fr 1.2fr;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  text-align: center;
+}
+
+.tableHeader {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.tableRow:hover {
+  background-color: #fafafa;
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+}
+
+.reason {
+  white-space: pre-wrap;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
