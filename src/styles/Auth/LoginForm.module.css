@@ -1,0 +1,97 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #ababab;
+    font-size: 15px;
+    font-family: "Pretendard", sans-serif;
+}
+
+.inputGroup input {
+    width: 570px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #d3d3d3;
+    font-family: "Pretendard", sans-serif;
+}
+
+.checkboxGroup {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.findIdRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+.findIdLink {
+  font-size: 0.9rem;
+  color: #3d5afe;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.divider {
+  margin: 0 4px;
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1;
+  display:flex;
+  align-items: center;
+}
+.loginButton {
+    width: 570px;
+    background: linear-gradient(180deg, #3aadb6, #6457db);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 30px;
+    /* margin-bottom: 12px; */
+}
+
+/*아이디 찾기 버튼*/
+.findIdLink {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color: #6457db;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 16px;
+}

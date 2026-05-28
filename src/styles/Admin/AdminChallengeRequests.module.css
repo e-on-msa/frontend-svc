@@ -1,0 +1,109 @@
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Pretendard", sans-serif;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.tableContainer {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableHeader,
+.tableRow {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 2fr; /* 기존 비율 유지 */
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.tableHeader {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.tableRow {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit; /* 기본 글자색 유지 */
+    transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+    background-color: #fafafa; /* hover 효과 */
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.approveBtn {
+    padding: 4px 8px;
+    background-color: #e0f7e9;
+    border: 1px solid #b2dfbd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rejectBtn {
+    padding: 4px 8px;
+    background-color: #fdd;
+    border: 1px solid #fbb;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.empty {
+    padding: 16px;
+    text-align: center;
+    color: #666;
+}
+
+.error {
+    color: red;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltipText {
+  visibility: hidden;
+  opacity: 0;
+  max-width: 500px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 90%; /* 위쪽에 표시 */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
+}
+

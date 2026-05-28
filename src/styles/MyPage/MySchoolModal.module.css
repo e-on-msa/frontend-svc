@@ -1,0 +1,126 @@
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modalContainer {
+    background: white;
+    width: 600px;
+    height: 500px; /* 고정 크기 */
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchRow {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.input {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.searchBtn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.resultTableContainer {
+    flex: 1;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.resultTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* 고정된 열 너비 적용 */
+    cursor: pointer;
+}
+
+.resultTable th,
+.resultTable td {
+    box-sizing: border-box;
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee; /* 왼쪽 세로줄 */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.resultTable th {
+    background-color: #f7f7f7;
+}
+
+/* .resultTable th:first-child,
+.resultTable td:first-child {
+  width: 40%;
+}
+
+.resultTable th:last-child,
+.resultTable td:last-child {
+  width: 60%;
+} */
+
+.selectedRow {
+    background-color: #d0ebff !important;
+    font-weight: bold;
+}
+
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.confirmBtn1,
+.confirmBtn2 {
+    width: 90px;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.6rem;
+    /* background-color: #4f46e5; */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.confirmBtn1 {
+    background-color: #979797;
+}
+
+.confirmBtn2:hover {
+    background-color: #6bb0f9;
+    /* background-color: #7970e1; */
+}
+
+/* .confirmBtn2:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+    color: #fff;
+} */

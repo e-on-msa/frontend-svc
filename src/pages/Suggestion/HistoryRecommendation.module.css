@@ -1,0 +1,105 @@
+/* 페이지 래퍼 — 전체 공통 */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem;
+}
+
+/* 섹션 래퍼 — select/time/profile과 동일한 폭/여백 */
+.wrapper {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* 상단 추천 유형 카드 — 동일 스타일 */
+.tabGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.tabCard {
+  width: 100%;
+  text-align: left;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 16px 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tabCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.activeTab {
+  background: #f0f9ff;
+  border: 1px solid #38bdf8;
+}
+
+.tabTitle {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tabDesc {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 본문 */
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0 12px;
+}
+
+.infoText {
+  margin: 20px 0 8px;
+  font-size: 15px;
+  color: #566;
+  text-align: center;
+}
+
+.errorText {
+  margin: 20px 0 8px;
+  font-size: 15px;
+  color: crimson;
+  text-align: center;
+}
+
+/* 추천 카드 리스트 — 가로 반응형 */
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cardDesc {
+  margin-top: 6px;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5;
+}

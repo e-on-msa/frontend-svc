@@ -1,0 +1,96 @@
+/* ChallengeCreateForm.module.css */
+
+.formContainer {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 13px;
+  padding: 38px 32px;
+  max-width: 1400px;
+  width: 95%;
+  margin: 40px auto;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  color: #222;
+}
+
+.flexRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+
+.column {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: 7px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 7px;
+  font-size: 15px;
+  background: #fff;
+  color: #222;
+}
+
+.input:read-only {
+  background: #f3f3f3;
+}
+
+.ageInput {
+  width: 60px;
+  padding: 6px 6px;
+  font-size: 15px;
+  border-radius: 7px;
+  border: 1.5px solid #e5e7eb;
+}
+
+/* 라디오 버튼 커스텀: 체크시 검정색 */
+input[type="radio"] {
+  accent-color: #111;
+}
+
+/* 체크박스도 스타일 맞추고 싶다면(선택) */
+input[type="checkbox"] {
+  accent-color: #2563eb;
+}
+
+/* 등록 버튼 */
+.button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 14px 0;
+  background: #e5e7eb;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 파일첨부 커스텀 label (버튼처럼) */
+.fileLabel {
+  display: inline-block;
+  padding: 9px 18px;
+  background: #f3f3f3;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #222;
+  transition: background .13s;
+}
+.fileLabel:hover {
+  background: #e5e7eb;
+}

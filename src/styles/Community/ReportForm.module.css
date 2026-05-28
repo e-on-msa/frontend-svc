@@ -1,0 +1,73 @@
+.reportForm {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  margin-bottom: 16px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.submitButton {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #e05252;
+}
+
+.cancelButton {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background-color: #ddd;
+}
+
+.successMessage {
+  text-align: center;
+  font-size: 16px;
+  color: #2d2d2d;
+}
+
+.closeButton {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background-color: #eee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

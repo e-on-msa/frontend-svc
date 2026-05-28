@@ -1,0 +1,51 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 20px 20px 15px 20px;
+  width: 250px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 12px;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.cardHeader p {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 8px;
+}
+
+.imageBox {
+  height: 160px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageBox img {
+  max-width: 100%;
+  height: auto;
+}
+
+.noImage {
+  color: #888;
+  font-size: 14px;
+}
+
+.cardFooter p {
+  font-size: 13px;
+  color: #444;
+  margin: 3px 0;
+}
+
+.firstOne {
+  margin-top: 9px !important;
+}

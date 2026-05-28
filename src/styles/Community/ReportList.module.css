@@ -1,0 +1,75 @@
+.container {
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e2e2;
+  text-align: center;
+  word-break: keep-all;         /* 단어 중간 줄바꿈 방지 */
+}
+
+/* ─── 칼럼별 최소 너비 지정 ─── */
+.table th:nth-child(1),
+.table td:nth-child(1) { min-width: 60px;  }   /* ID           */
+.table th:nth-child(2),
+.table td:nth-child(2) { min-width: 80px;  }   /* 타입         */
+.table th:nth-child(3),
+.table td:nth-child(3) { min-width: 90px;  }   /* 대상 ID      */
+.table th:nth-child(4),
+.table td:nth-child(4) { min-width: 90px;  }   /* 신고자       */
+.table th:nth-child(5),
+.table td:nth-child(5) { min-width: 120px; }   /* 사유         */
+.table th:nth-child(6),
+.table td:nth-child(6) { min-width: 160px; }   /* 신고일시     */
+.table th:nth-child(7),
+.table td:nth-child(7) { min-width: 200px; }   /* 미리보기     */
+.table th:nth-child(8),
+.table td:nth-child(8) { min-width: 70px;  }   /* 원문 링크    */
+.table th:nth-child(9),
+.table td:nth-child(9) { min-width: 160px; }   /* 정지만료     */
+.table th:nth-child(10),
+.table td:nth-child(10){ min-width: 80px;  }   /* 조치 버튼    */
+
+/* 긴 텍스트는 … 으로 줄이면서 툴팁 제공 */
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table td:hover {
+  white-space: normal;          /* 마우스 올리면 전체 내용 표시 */
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+
+.backdrop { position:fixed; inset:0; background:rgba(0,0,0,.4); display:flex; justify-content:center; align-items:center; }
+.modal    { background:#fff; padding:20px; border-radius:8px; width:300px; }
+.btnRow   { display:flex; gap:8px; justify-content:end; margin-top:12px; }
+.warn     { color:#b00; margin:32px; }
+
+.preview {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

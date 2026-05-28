@@ -1,0 +1,91 @@
+.container {
+    max-width: 1280px; /* 데스크탑 기준 넓이 제한 */
+    min-height: 100vh; /* 최소 화면 높이 (viewport) */
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+/* 좌측 메뉴 영역 */
+.sidebar {
+    width: 180px;
+    flex-shrink: 0;
+    border-right: 1px solid #eee;
+    padding-right: 16px;
+}
+
+.title {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content {
+    max-width: 1280px;
+    margin: 0 auto;
+    font-family: "Pretendard", sans-serif;
+}
+
+/* 메뉴 항목 리스트 */
+.menuList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menuItem {
+    font-weight: 500;
+    color: #666;
+    padding: 10px 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.menuItem:hover {
+    background-color: #f7f7f7;
+}
+
+.active {
+    color: #222;
+    font-weight: 700;
+    background-color: #f0f0f0;
+}
+
+/* 우측 컨텐츠 영역 */
+.contentArea {
+    max-width: 800px;
+    flex: 1;
+    padding-left: 8px;
+}
+
+/* .menuGrid {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    display: flex;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.userInfo {
+    text-align: center;
+}
+
+.userName,
+.userEmail {
+    margin: 0;
+}
+
+.userName {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.userEmail {
+    margin-bottom: 20px;
+}
+
+*/

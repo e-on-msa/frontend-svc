@@ -1,0 +1,13 @@
+.timerMessage {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}

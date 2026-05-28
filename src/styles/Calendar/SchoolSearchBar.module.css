@@ -1,0 +1,122 @@
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.searchRadioButtons {
+    display: flex;
+    flex-wrap: wrap; /* 추가 */
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 30px;
+    gap: 10px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    color: #333;
+    line-height: 16px;
+}
+
+.searchRadioButtons [type="radio"] {
+    position: relative;
+    margin-right: 7px;
+    vertical-align: middle;
+    appearance: none;
+    border: 1px solid #3398ff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    transition: border 0.5s ease-in-out;
+}
+
+.searchRadioButtons [type="radio"]:checked {
+    background-color: #e6f3ff;
+    border: 1px solid #3398ff;
+}
+
+.searchRadioButtons [type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #3398ff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    height: 39px;
+    position: relative;
+}
+
+.search {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1; /* 낮은 값 */
+    width: 20px;
+    height: 20px;
+}
+
+.input {
+    width: 470px;
+    height: 39px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding-left: 40px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 195px;
+    height: 39px;
+    background-color: #929292;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.suggestionsList {
+    position: absolute;
+    top: 100%; /* input 박스 바로 아래 */
+    left: 0;
+    width: 530px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+    z-index: 10; /* input, 버튼보다 위에 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 4px;
+    list-style: none;
+    padding: 0;
+}
+
+.suggestionItem {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.suggestionItem:hover {
+    background-color: #f0f0f0;
+}

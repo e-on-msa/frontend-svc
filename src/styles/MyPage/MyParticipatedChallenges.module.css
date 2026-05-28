@@ -1,0 +1,46 @@
+/* src/styles/MyPage/MyParticipatedChallenges.module.css */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.tableContainer {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: 2.2fr 2.2fr 1.3fr 1.3fr; /* 4칸! */
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  text-align: center;
+}
+
+.tableHeader {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.tableRow:hover {
+  background-color: #fafafa;
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+}
