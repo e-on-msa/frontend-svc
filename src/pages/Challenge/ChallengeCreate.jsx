@@ -28,7 +28,7 @@ const ChallengeCreate = () => {
                 end_date: formData.endDate
                     ? formData.endDate + "T07:30:00"
                     : null,
-                is_recuming: formData.isRegular === "정기",
+                is_recurring: formData.isRegular === "정기",
                 repeat_type:
                     formData.isRegular === "정기"
                         ? (() => {

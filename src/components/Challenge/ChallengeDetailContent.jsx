@@ -66,7 +66,7 @@ const ChallengeDetailContent = ({
     userAge >= minAgeNum &&
     userAge <= maxAgeNum;
 
-  const isOwner = challenge.creator_id === userId || challenge.creator?.user_id === userId;
+  const isOwner = challenge.is_owner;
 
   // 1) 리뷰 가져오기 (hideReviews면 호출도 스킵)
   useEffect(() => {
@@ -131,7 +131,7 @@ const ChallengeDetailContent = ({
         console.log("참여취소 에러(무시)", e);
       }
       try {
-        await participateChallenge(challenge.challenge_id, { user_id: userId });
+        await participateChallenge(challenge.challenge_id, {});
         alert("참여가 완료되었습니다!");
         await new Promise((res) => setTimeout(res, 300));
         await refresh();
@@ -149,7 +149,7 @@ const ChallengeDetailContent = ({
         setActionLoading(false);
         return;
       }
-      await participateChallenge(challenge.challenge_id, { user_id: userId });
+      await participateChallenge(challenge.challenge_id, {});
       alert("참여가 완료되었습니다!");
       await new Promise((res) => setTimeout(res, 300));
       await refresh();
@@ -183,7 +183,7 @@ const ChallengeDetailContent = ({
       ? `${formatDate(challenge.duration.start)} ~ ${formatDate(challenge.duration.end)}`
       : "-";
 
-  const isRegular = challenge.is_recuming ? "정기" : "비정기";
+  const isRegular = challenge.is_recurring ? "정기" : "비정기";
   const repeatCycle =
     challenge.repeat_type === "WEEKLY"
       ? "주 1회"
@@ -254,11 +254,11 @@ const ChallengeDetailContent = ({
   const toggleBookmark = async () => {
     try {
       if (bookmarked) {
-        await removeBookmark(challenge.challenge_id, userId);
+        await removeBookmark(challenge.challenge_id);
         setBookmarked(false);
         alert("북마크가 해제되었습니다!");
       } else {
-        await addBookmark(challenge.challenge_id, userId);
+        await addBookmark(challenge.challenge_id);
         setBookmarked(true);
         alert("북마크에 추가되었습니다!");
       }
