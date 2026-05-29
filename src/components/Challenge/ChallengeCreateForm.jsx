@@ -7,9 +7,7 @@ import styles from "../../styles/Challenge/ChallengeCreateForm.module.css";
 const ChallengeCreateForm = ({
     mode = "create",
     initialData = {},
-    user_id,
 }) => {
-    console.log("ChallengeCreateForm user_id props:", user_id);
     const isEdit = mode === "edit";
     const navigate = useNavigate();
 
@@ -96,7 +94,7 @@ const ChallengeCreateForm = ({
             setIsRegular(
                 initialData.isRegular !== undefined
                     ? initialData.isRegular
-                    : initialData.is_recuming
+                    : initialData.is_recurring
                     ? "정기"
                     : "비정기"
             );
@@ -210,7 +208,7 @@ const ChallengeCreateForm = ({
             application_deadline: deadline ? deadline + "T23:59:59" : null,
             start_date: startDate ? startDate + "T07:00:00" : null,
             end_date: endDate ? endDate + "T07:30:00" : null,
-            is_recuming: isRegular === "정기",
+            is_recurring: isRegular === "정기",
             repeat_type:
                 isRegular === "정기"
                     ? repeatCycle === "주 1회"
@@ -245,7 +243,6 @@ const ChallengeCreateForm = ({
             interestIds: interestIds,
             visionIds: visionIds,
             creator_contact: phone,
-            user_id: user_id,
             ...(isEdit && {
                 challenge_state: status === "모집중" ? "ACTIVE" : "CLOSED",
             }),

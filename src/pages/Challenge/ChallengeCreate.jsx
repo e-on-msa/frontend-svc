@@ -28,7 +28,7 @@ const ChallengeCreate = () => {
                 end_date: formData.endDate
                     ? formData.endDate + "T07:30:00"
                     : null,
-                is_recuming: formData.isRegular === "정기",
+                is_recurring: formData.isRegular === "정기",
                 repeat_type:
                     formData.isRegular === "정기"
                         ? (() => {
@@ -68,7 +68,6 @@ const ChallengeCreate = () => {
                 interestIds: formData.interestIds,
                 visionIds: formData.visionIds,
                 creator_contact: formData.phone,
-                user_id: user.user_id,
             };
 
             const res = await createChallenge(req);
@@ -117,7 +116,6 @@ const ChallengeCreate = () => {
             <ChallengeCreateForm
                 mode="create"
                 onSubmit={handleSubmit}
-                user_id={user.user_id}
             />
         </div>
     );

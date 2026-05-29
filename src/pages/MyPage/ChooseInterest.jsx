@@ -15,8 +15,6 @@ const ChooseInterest = () => {
     const [categoryInterests, setCategoryInterests] = useState({}); // { catCode: [interests] }
     const [selectedInterests, setSelectedInterests] = useState({}); // { catCode: [interest_detail] }
 
-    const userId = JSON.parse(localStorage.getItem("user"))?.user_id;
-
     // 카테고리 가져오기
     useEffect(() => {
         getInterestCategories().then(setCategories);
@@ -118,10 +116,7 @@ const ChooseInterest = () => {
             .filter(Boolean);
 
         try {
-            await axiosInstance.post("/api/preferences/interests", {
-                userId,
-                interestIds,
-            });
+            await axiosInstance.post("/api/preferences/interests", { interestIds });
             navigate("/mypage/preferences-visions");
         } catch (err) {
             console.error("❌ 관심사 저장 실패", err);

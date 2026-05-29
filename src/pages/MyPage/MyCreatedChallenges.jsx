@@ -9,13 +9,10 @@ const MyCreatedChallenges = () => {
     const [challenges, setChallenges] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // 로그인 유저 ID 받아오는 방법 (실제 프로젝트 상황에 맞게 조정)
-    const userId = JSON.parse(localStorage.getItem("user"))?.user_id;
-
     const fetchCreatedChallenges = async () => {
         try {
             setLoading(true);
-            const response = await getMyCreatedChallenges(userId);
+            const response = await getMyCreatedChallenges();
             setChallenges(response.data.challenges || []);
         } catch (error) {
             console.error("내가 개설한 챌린지 목록 조회 실패", error);

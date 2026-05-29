@@ -10,7 +10,7 @@ import styles from "../../styles/Challenge/ChallengeEdit.module.css";
 const ChallengeEdit = () => {
   const { id } = useParams();
   const [challenge, setChallenge] = useState(null);
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const ChallengeEdit = () => {
         end_date: formData.endDate
           ? formData.endDate + "T07:30:00"
           : null,
-        is_recuming: formData.isRegular === "정기",
+        is_recurring: formData.isRegular === "정기",
         repeat_type:
           formData.isRegular === "정기"
             ? (formData.repeatCycle === "주 1회"
@@ -83,7 +83,6 @@ const ChallengeEdit = () => {
       <ChallengeCreateForm
         mode="edit"
         initialData={challenge}
-        user_id={user.user_id}
         onSubmit={handleUpdate}
       />
     </div>
