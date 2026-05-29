@@ -18,14 +18,14 @@ const ReportForm = ({ targetType, targetId, onClose }) => {
       return;
     }
 
-    if (!user || !user.user_id) {
+    if (!user) {
       alert('로그인이 필요합니다.');
       return;
     }
 
     setLoading(true);
     try {
-      await reportContent(targetType, targetId, reason, user.user_id);
+      await reportContent(targetType, targetId, reason);
       setSuccess(true);
     } catch (error) {
       console.error('신고 실패:', error);

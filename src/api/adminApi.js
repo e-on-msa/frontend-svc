@@ -15,15 +15,15 @@ export const updateUserState = async (userId, stateCode) => {
 
 /** 지정 시간(또는 영구) 정지 */
 export const banUser = (payload) =>
-  axios.post("/admin/ban", payload);
+  axios.post("/api/admin/ban", payload);
 
 /** 정지 해제 */
 export const unbanUser = (userId) =>
-  axios.patch(`/admin/ban/${userId}`, { action: "unban" });
+  axios.patch(`/api/admin/ban/${userId}`, { action: "unban" });
 
 /** 정지 연장 */
 export const extendBan = (userId, hours) =>
-  axios.patch(`/admin/ban/${userId}`, {
+  axios.patch(`/api/admin/ban/${userId}`, {
     action: "extend",
     duration_hours: hours,
   });

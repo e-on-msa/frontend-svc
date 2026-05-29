@@ -114,7 +114,7 @@ const ViewNavigator = () => {
 
             if (isMySchool) {
                 // 현재 학교가 나의 학교인 경우 삭제
-                await deleteMySchool(userId, type);
+                await deleteMySchool(type);
                 setMySchoolCode(null);
                 toast(
                     `${
@@ -135,8 +135,8 @@ const ViewNavigator = () => {
                     } 나의 학교를 ${selectedValue}로 변경하시겠습니까?`
                 );
                 if (confirmed) {
-                    await deleteMySchool(userId, type);
-                    await saveMySchool(userId, type, currentSchoolCode.code);
+                    await deleteMySchool(type);
+                    await saveMySchool(type, currentSchoolCode.code);
                     setMySchoolCode(currentSchoolCode.code);
                     toast(
                         `${
@@ -150,7 +150,7 @@ const ViewNavigator = () => {
                 }
             } else {
                 // 나의 학교 미존재 시, 현재의 학교 코드를 타입에 맞춰 데이터베이스에 저장
-                await saveMySchool(userId, type, currentSchoolCode.code);
+                await saveMySchool(type, currentSchoolCode.code);
                 setMySchoolCode(currentSchoolCode.code);
                 toast(
                     `${

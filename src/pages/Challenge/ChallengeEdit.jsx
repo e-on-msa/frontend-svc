@@ -10,7 +10,7 @@ import styles from "../../styles/Challenge/ChallengeEdit.module.css";
 const ChallengeEdit = () => {
   const { id } = useParams();
   const [challenge, setChallenge] = useState(null);
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,7 +83,6 @@ const ChallengeEdit = () => {
       <ChallengeCreateForm
         mode="edit"
         initialData={challenge}
-        user_id={user.user_id}
         onSubmit={handleUpdate}
       />
     </div>

@@ -16,9 +16,6 @@ const PreferenceInterest = () => {
   // 선택을 { interest_id, interest_detail } 객체로 저장
   const [selectedInterests, setSelectedInterests] = useState([]);
 
-  // ✅ localStorage에서 로그인된 사용자 ID 가져오기
-  const userId = JSON.parse(localStorage.getItem("user"))?.user_id;
-
   useEffect(() => {
     getInterestCategories().then((data) => {
       setCategories(data || []);
@@ -58,10 +55,7 @@ const PreferenceInterest = () => {
       // ✅ 이미 id를 들고 있으므로 카테고리 변경과 무관하게 안전
       const interestIds = selectedInterests.map((i) => i.interest_id);
 
-      await axios.post("/api/preferences/interests", {
-        userId,
-        interestIds
-      });
+      await axios.post("/api/preferences/interests", { interestIds });
 
       navigate("/suggestion/preferences/vision");
     } catch (err) {

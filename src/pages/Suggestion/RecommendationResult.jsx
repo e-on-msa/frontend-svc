@@ -4,24 +4,25 @@ import { fetchRecommendationsByPreference } from "../../api/preference";
 import PersonalRecommendationCard from "../../components/Suggestion/PersonalRecommendationCard";
 import Header from "../../components/Common/Header";
 import styles from "./RecommendationResult.module.css";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function RecommendationResult() {
     const [recommendations, setRecommendations] = useState([]);
     const navigate = useNavigate();
     const location = useLocation();
+    const { user } = useAuth();
 
     useEffect(() => {
-        const userId = JSON.parse(localStorage.getItem("user"))?.user_id;
-        if (!userId) {
-            console.error("❌ user_id를 localStorage에서 찾을 수 없습니다.");
+        if (!user) {
+            console.error("user_id를 localStorage에서 찾을 수 없습니다.");
             return;
         }
-        fetchRecommendationsByPreference(userId)
+        fetchRecommendationsByPreference()
             .then((data) =>
                 setRecommendations(Array.isArray(data?.items) ? data.items : [])
             )
             .catch((err) => console.error("추천 로딩 실패:", err));
-    }, []);
+    }, [user]);
 
     return (
         <div className={styles.container}>

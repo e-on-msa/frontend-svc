@@ -15,8 +15,6 @@ const ChooseVision = () => {
     const [categoryVisions, setCategoryVisions] = useState({}); // { [category_code]: VisionItem[] }
     const [selectedVisions, setSelectedVisions] = useState({}); // { [category_code]: string[] }  -> vision_detail 배열
 
-    const userId = JSON.parse(localStorage.getItem("user"))?.user_id;
-
     // 카테고리 가져오기
     useEffect(() => {
         getVisionCategories().then(setCategories);
@@ -69,10 +67,7 @@ const ChooseVision = () => {
             .filter(Boolean);
 
         try {
-            await axiosInstance.post("/api/preferences/visions", {
-                userId,
-                visionIds,
-            });
+            await axiosInstance.post("/api/preferences/visions", { visionIds });
             navigate("/mypage/preferences-visions");
         } catch (err) {
             console.error("❌ 진로희망 저장 실패", err);

@@ -16,9 +16,6 @@ const PreferenceVision = () => {
   // 선택을 { vision_id, vision_detail } 형태로 관리
   const [selectedVisions, setSelectedVisions] = useState([]);
 
-  // ✅ 로그인 사용자 ID 불러오기
-  const userId = JSON.parse(localStorage.getItem("user"))?.user_id;
-
   useEffect(() => {
     getVisionCategories().then((data) => {
       setCategories(data || []);
@@ -58,11 +55,7 @@ const PreferenceVision = () => {
       // ✅ 이미 id를 들고 있으므로 카테고리와 무관하게 안전
       const visionIds = selectedVisions.map((v) => v.vision_id);
 
-      // ✅ 백엔드에 POST
-      await axios.post("/api/preferences/visions", {
-        userId,
-        visionIds
-      });
+      await axios.post("/api/preferences/visions", { visionIds });
 
       navigate("/suggestion/recommendation");
     } catch (err) {
