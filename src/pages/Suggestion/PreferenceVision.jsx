@@ -57,7 +57,7 @@ const PreferenceVision = () => {
 
       await axios.post("/api/preferences/visions", { visionIds });
 
-      navigate("/suggestion/recommendation");
+      navigate("/recommend/select/profile");
     } catch (err) {
       console.error("❌ 진로희망 저장 실패", err);
       alert("진로희망 저장 중 오류가 발생했습니다.");

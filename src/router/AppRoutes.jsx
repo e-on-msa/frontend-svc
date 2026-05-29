@@ -17,6 +17,7 @@ import RecommendationResult from "../pages/Suggestion/RecommendationResult";
 import RecommendEntry from "../pages/Suggestion/RecommendEntry";
 import RecommendSelect from "../pages/Suggestion/RecommendSelect";
 import HistoryRecommendation from "../pages/Suggestion/HistoryRecommendation";
+import TimeRecommendation from "../pages/Suggestion/TimeRecommendation";
 
 // Challenge
 import Challenge from "../pages/Challenge/Challenge";
@@ -137,7 +138,7 @@ const AppRoutes = () => {
             />
             <Route
                 path="/suggestion/recommendation"
-                element={<Navigate to="/recommend/profile" replace />}
+                element={<Navigate to="/recommend/select/profile" replace />}
             />
 
             {/* Community */}

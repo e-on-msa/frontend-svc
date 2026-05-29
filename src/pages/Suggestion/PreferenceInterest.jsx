@@ -57,7 +57,7 @@ const PreferenceInterest = () => {
 
       await axios.post("/api/preferences/interests", { interestIds });
 
-      navigate("/suggestion/preferences/vision");
+      navigate("/onboarding/preferences/vision");
     } catch (err) {
       console.error("❌ 관심사 저장 실패", err);
       alert("관심사 저장 중 오류가 발생했습니다.");
