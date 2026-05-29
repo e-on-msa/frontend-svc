@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import api from "../api/axiosInstance";
 
@@ -146,3 +146,7 @@ function AuthProvider({ children }) {
 }
 
 export default AuthProvider;
+
+export const useAuth = () => {
+    return useContext(AuthContext);
+};

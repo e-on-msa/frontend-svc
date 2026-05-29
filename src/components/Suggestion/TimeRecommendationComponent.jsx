@@ -20,7 +20,7 @@ export default function TimeRecommendationComponent() {
                 month,
                 grade
             );
-            setRecommendations(result);
+            setRecommendations(result.items || []);
         } catch (err) {
             console.error(err);
             alert("추천 정보를 불러오는 데 실패했습니다.");
@@ -35,7 +35,7 @@ export default function TimeRecommendationComponent() {
     };
 
     return (
-        <div className={styles.compomnentContainer}>
+        <div className={styles.container}>
             <div className={styles.wrapper}>
                 {/* 학년/월 선택 */}
                 <div className={styles.selectRow}>
