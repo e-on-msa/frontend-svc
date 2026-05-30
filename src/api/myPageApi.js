@@ -1,7 +1,7 @@
 import axiosInstance from "./axiosInstance";
 
 export const getMyBoardRequests = () => {
-  return axiosInstance.get("/api/user/board-requests/me");
+  return axiosInstance.get("/api/boards/board-requests/me");
 };
 
 /* ────────────────────────────────────────────────────── */

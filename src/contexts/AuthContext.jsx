@@ -23,7 +23,7 @@ function AuthProvider({ children }) {
     }) => {
         try {
             // console.log("📦 signup axios 요청 보냄");
-            const res = await api.post("/auth/join/step3", {
+            const res = await api.post("/api/auth/join/step3", {
                 name,
                 email,
                 age,
@@ -58,7 +58,7 @@ function AuthProvider({ children }) {
 
     const login = async ({ email, password }) => {
         // console.log('🔍 로그인 요청 발생! 이메일:', email, '비번:', password);
-        const res = await api.post("/auth/login", { email, password });
+        const res = await api.post("/api/auth/login", { email, password });
         console.log('🔍 로그인 요청 발생! 이메일:', email, '비번:', password);
         console.log("💬 로그인 응답:", res.data);
         console.log("🐛 user:", res.data.user);  
@@ -81,7 +81,7 @@ function AuthProvider({ children }) {
     };
 
     const logout = async () => {
-        await api.post("/auth/logout");
+        await api.post("/api/auth/logout");
         setUser(null);
 
         localStorage.removeItem("user");
@@ -101,7 +101,7 @@ function AuthProvider({ children }) {
     useEffect(() => {
         const fetchMe = async () => {
             try {
-                const res = await api.get("/api/user/me"); // ✅ 변경된 경로
+                const res = await api.get("/api/user/me");
                 setUser(res.data.user);
 
                 // ✅ localStorage에 저장
