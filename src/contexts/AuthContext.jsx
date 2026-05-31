@@ -64,7 +64,10 @@ function AuthProvider({ children }) {
         console.log("🐛 user:", res.data.user);  
         setUser(res.data.user);
         console.log("🔥 login 실행됨: ", email, password);
-
+        if (res.data.csrfToken) {
+            // axiosInstance 헤더 갱신
+            api.defaults.headers.common['X-CSRF-Token'] = res.data.csrfToken;
+        }
         localStorage.setItem("user", JSON.stringify(res.data.user));
         toast(`${res.data.user.name}님, 환영합니다!`, {
             icon: "💜",
