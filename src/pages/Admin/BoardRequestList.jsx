@@ -9,7 +9,7 @@ const BoardRequestList = () => {
     const fetchBoardList = async () => {
         try {
             const response = await getAllBoardRequests();
-            setRequestList(response.data.requests);
+            setRequestList(response.data.board_requests || []);
         } catch (error) {
             console.error("게시판 개설 신청 목록 조회 실패", error);
         }

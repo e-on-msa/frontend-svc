@@ -106,10 +106,6 @@ export const getAllBoardRequests = () => {
   return axiosInstance.get(`/api/boards/board-requests`);
 };
 
-// 게시판 개설 승인 (PATCH)
-export const updateBoardRequestStatus = (requestId, status) => {
-  return axiosInstance.patch(`/api/boards/board-requests/${requestId}`, { request_status: status });
-};
 
 // 게시글 댓글 신고
 export const reportContent = (report_type, targetId, reason) => {
