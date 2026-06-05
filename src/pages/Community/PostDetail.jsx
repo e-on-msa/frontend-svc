@@ -323,6 +323,7 @@ const PostDetail = () => {
                 <CommentItem
                   key={c.comment_id}
                   comment={c}
+                  boardId={board_id}
                   postId={post.post_id}
                   user={user}
                   fetchPost={fetchPost}
