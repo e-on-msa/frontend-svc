@@ -92,13 +92,6 @@ const AppRoutes = () => {
             />
 
             {/* Recommend */}
-            {/* <Route path="/recommend" element={<RecommendEntry />} />
-            <Route path="/recommend/select" element={<RecommendSelect />} /> */}
-            {/* <Route path="/recommend/time" element={<TimeRecommendation />} /> */}
-            {/* <Route path="/recommend/profile" element={<RecommendationResult />} />
-            <Route path="/recommend/history" element={<HistoryRecommendation />} /> */}
-
-            {/* Recommend */}
             <Route path="/recommend" element={<RecommendEntry />} />
 
             {/* Recommend Select 내부 라우팅 */}
@@ -125,7 +118,7 @@ const AppRoutes = () => {
             />
             <Route
                 path="/recommendation/time"
-                element={<Navigate to="/recommend/time" replace />}
+                element={<Navigate to="/recommend/select/time" replace />}
             />
             <Route
                 path="/suggestion/preferences"
