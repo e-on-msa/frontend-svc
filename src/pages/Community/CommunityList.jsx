@@ -24,7 +24,7 @@ const CommunityList = () => {
         const fetchBoardList = async () => {
             try {
                 const response = await getBoardList();
-                const boards = response.data;
+                const boards = response.data.boards;
                 const newTabList = boards.map((board) => board.board_name);
                 const newBoardIdMap = boards.reduce((acc, board) => {
                     acc[board.board_name] = board.board_id;
@@ -53,12 +53,12 @@ const CommunityList = () => {
                 // console.log("응답 확인:", response.data);
 
                 setPosts(
-                    response.data.map((post) => ({
+                    response.data.posts.map((post) => ({
                         post_id: post.post_id,
                         title: post.title,
                         createdAt: post.created_at,
                         userId: post.user_id,
-                        userName: post.User.name,
+                        userName: post.author_name,
                     }))
                 );
             } catch (error) {
