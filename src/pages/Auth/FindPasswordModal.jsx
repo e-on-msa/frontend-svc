@@ -42,7 +42,7 @@ export default function FindPasswordModal({ onClose }) {
   const handleSubmit = async () => {
     setError("");
     try {
-      const res = await axios.post("/auth/find-id", { name, age });
+      const res = await axios.post("/api/auth/find-id", { name, age });
       setEmailList(res.data.emails);
       setStep(1);
     } catch (err) {
@@ -67,7 +67,7 @@ export default function FindPasswordModal({ onClose }) {
   const sendCode = async (emailAddr) => {
     setError("");
     try {
-      await axios.post("/auth/find-password/send-code-to-email", { email: emailAddr });
+      await axios.post("/api/auth/find-password/send-code-to-email", { email: emailAddr });
       setMessage("인증 코드가 전송되었습니다.");
       setRemainingTime(300);
       setTimerActive(true);
@@ -85,7 +85,7 @@ export default function FindPasswordModal({ onClose }) {
       return;
     }
     try {
-      await axios.post("/auth/find-password/verify-code", {
+      await axios.post("/api/auth/find-password/verify-code", {
         email: selectedEmail,
         code,
       });
@@ -102,7 +102,7 @@ export default function FindPasswordModal({ onClose }) {
       return;
     }
     try {
-      await axios.patch("/auth/find-password/reset", {
+      await axios.patch("/api/auth/find-password/reset", {
         newPassword,
         confirmPassword,
       });
