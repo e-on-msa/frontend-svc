@@ -91,20 +91,21 @@ const AppRoutes = () => {
                 element={<ReviewEdit />}
             />
 
-            {/* Recommend (새 흐름) */}
+            {/* Recommend */}
             {/* <Route path="/recommend" element={<RecommendEntry />} />
-            <Route path="/recommend/select" element={<RecommendSelect />} />
-            <Route path="/recommend/time" element={<TimeRecommendation />} />
-            <Route path="/recommend/profile" element={<RecommendationResult />} />
+            <Route path="/recommend/select" element={<RecommendSelect />} /> */}
+            {/* <Route path="/recommend/time" element={<TimeRecommendation />} /> */}
+            {/* <Route path="/recommend/profile" element={<RecommendationResult />} />
             <Route path="/recommend/history" element={<HistoryRecommendation />} /> */}
 
-            {/* Recommend (새 흐름) */}
+            {/* Recommend */}
             <Route path="/recommend" element={<RecommendEntry />} />
 
             {/* Recommend Select 내부 라우팅 */}
             <Route path="/recommend/select" element={<RecommendSelect />}>
                 <Route path="profile" element={<RecommendationResult />} />
                 <Route path="history" element={<HistoryRecommendation />} />
+                <Route path="time" element={<TimeRecommendation />} />
             </Route>
 
             {/* Onboarding (이전 suggestion 경로 정리) */}
