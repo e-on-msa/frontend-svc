@@ -123,6 +123,8 @@ export const reportContent = (report_type, targetId, reason) => {
   return axiosInstance.post('/api/boards/reports', payload);
 };
 
-export const getAllReports = () => {
-  return axiosInstance.get('/api/boards/admin/reports');
+export const getAllReports = (page = 1, limit = 10) => {
+  return axiosInstance.get(
+    `/api/boards/admin/reports?page=${page}&limit=${limit}`
+  );
 };

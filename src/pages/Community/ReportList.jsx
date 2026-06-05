@@ -72,7 +72,7 @@ const ReportList = () => {
   const fetchReports = async () => {
     try {
       const res = await getAllReports();   // /boards/admin/report
-      setReports(res.data);
+      setReports(res.data.reports || []);
     } catch (err) {
       console.error("신고 목록 조회 실패:", err);
       toast("목록 불러오기 실패", { icon: "⚠️" });
@@ -87,7 +87,7 @@ const ReportList = () => {
   }
 
   /* 베이스 URL (이미지는 사용하지 않지만 링크 경로용) */
-  const POST_PATH = "/community/posts";
+  const POST_PATH = "/community";
 
   return (
     <div className={styles.container}>
@@ -122,7 +122,7 @@ const ReportList = () => {
               const parentPostId =
               isPost ? targetId : r.Comment?.post_id ?? r.post_id;
 
-              const link = `${POST_PATH}/${parentPostId}${!isPost ? `?comment=${targetId}` : ""}`;
+              const link = `${POST_PATH}/${r.board_id}/posts/${parentPostId}` + `${!isPost ? `?comment=${targetId}` : ""}`;
 
               /* ---- 신고자 정지 만료 ---- */
               const bannedUntil = r.User?.banned_until

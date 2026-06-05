@@ -38,15 +38,21 @@ const PostDetail = () => {
 
     // ───────── 게시글 가져오기 ─────────
     const fetchPost = async () => {
-        try {
+      try {
         const res = await getPost(board_id, post_id);
-        setPost(res.data);
-        setExistingImgs(res.data.images || []); 
+
+        setPost({
+          ...res.data.post,
+          comments: res.data.comments || [],
+          pagination: res.data.pagination,
+        });
+
+        setExistingImgs(res.data.post.images || []);
         setRemovedIds([]);
         setNewFiles([]);
-        } catch (err) {
+      } catch (err) {
         console.error("게시글 불러오기 실패:", err);
-        }
+      }
     };
 
     useEffect(() => {
