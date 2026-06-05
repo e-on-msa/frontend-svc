@@ -16,8 +16,10 @@ export const getBoardPosts = (boardId) => {
 };
 
 // 게시글 상세 조회
-export const getPost = (postId) => {
-  return axiosInstance.get(`/api/boards/posts/${postId}`);
+export const getPost = (boardId, postId, commentPage = 1, commentLimit = 5) => {
+  return axiosInstance.get(`/api/boards/${boardId}/posts/${postId}`, {
+    params: { comment_page: commentPage, comment_limit: commentLimit }
+  });
 };
 
 // 게시글 작성 (텍스트만 or 이미지 포함 FormData 모두 지원)
@@ -33,31 +35,56 @@ export const createPost = (boardId, postData) => {
   );
 };
 
-
-// 게시글 수정 (이미지 포함 FormData도 처리)
+// 게시글 수정 PUT /api/boards/posts/:post_id
 export const updatePost = (postId, postData) => {
-  // FormData인지 판별
   const isFormData = postData instanceof FormData;
-
   return axiosInstance.put(
     `/api/boards/posts/${postId}`,
     postData,
-    isFormData
-      ? { headers: { "Content-Type": "multipart/form-data" } }
-      : undefined
+    isFormData ? { headers: { "Content-Type": "multipart/form-data" } } : undefined
   );
 };
 
-
-// 게시글 삭제
+// 게시글 삭제 DELETE /api/boards/posts/:post_id
 export const deletePost = (postId) => {
   return axiosInstance.delete(`/api/boards/posts/${postId}`);
 };
 
-// 댓글 작성
-export const createComment = (postId, data) => {
-  return axiosInstance.post(`/api/boards/posts/${postId}/comments`, data);
+// 댓글 작성 POST /api/boards/:board_id/posts/:post_id/comments
+export const createComment = (boardId, postId, data) => {
+  return axiosInstance.post(`/api/boards/${boardId}/posts/${postId}/comments`, data);
 };
+
+// 게시판 개설 승인/거절
+export const updateBoardRequestStatus = (requestId, action) => {
+  return axiosInstance.patch(`/api/boards/board-requests/${requestId}`, { action });
+};
+
+
+// 게시글 수정 (이미지 포함 FormData도 처리)
+// export const updatePost = (postId, postData) => {
+//   // FormData인지 판별
+//   const isFormData = postData instanceof FormData;
+
+//   return axiosInstance.put(
+//     `/api/boards/posts/${postId}`,
+//     postData,
+//     isFormData
+//       ? { headers: { "Content-Type": "multipart/form-data" } }
+//       : undefined
+//   );
+// };
+
+
+// // 게시글 삭제
+// export const deletePost = (postId) => {
+//   return axiosInstance.delete(`/api/boards/posts/${postId}`);
+// };
+
+// // 댓글 작성
+// export const createComment = (postId, data) => {
+//   return axiosInstance.post(`/api/boards/posts/${postId}/comments`, data);
+// };
 
 // 댓글 수정
 export const updateComment = (commentId, data) => {

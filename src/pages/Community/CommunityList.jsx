@@ -113,7 +113,7 @@ const CommunityList = () => {
                                 <div
                                     className={styles.columnTitle}
                                     onClick={() =>
-                                        navigate(`/community/posts/${post.post_id}`)
+                                        navigate(`/community/${boardId}/posts/${post.post_id}`)
                                     }
                                     style={{ cursor: "pointer" }}>
                                     {post.title}

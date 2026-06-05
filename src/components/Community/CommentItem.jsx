@@ -10,7 +10,7 @@ import {
 import { useAuth } from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 
-const CommentItem = ({ comment, user, fetchPost, depth = 0, postId }) => {
+const CommentItem = ({ comment, user, fetchPost, depth = 0, boardId, postId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
   const [showReply, setShowReply] = useState(false);
@@ -52,7 +52,7 @@ const CommentItem = ({ comment, user, fetchPost, depth = 0, postId }) => {
     }
     if (!replyContent.trim()) return;
     try {
-      await createComment(postId, {
+      await createComment(boardId, postId, {
         content: replyContent,
         parent_comment_id: comment.comment_id,
       });
@@ -75,7 +75,7 @@ const CommentItem = ({ comment, user, fetchPost, depth = 0, postId }) => {
       {/* 헤더 */}
       <div className={styles.header}>
         <div className={styles.meta}>
-          <span className={styles.author}>{comment.User?.name}</span>
+          <span className={styles.author}>{comment.author_name}</span>
           <span className={styles.date}>{new Date(comment.created_at).toLocaleString()}</span>
         </div>
 
@@ -164,6 +164,7 @@ const CommentItem = ({ comment, user, fetchPost, depth = 0, postId }) => {
           <CommentItem
             key={child.comment_id}
             comment={child}
+            boardId={boardId}
             postId={postId}
             user={user}
             fetchPost={fetchPost}
