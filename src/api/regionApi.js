@@ -7,7 +7,7 @@ export const getRegionList = async () => {
 
 // 2. 지역명 검색
 export const searchRegionByName = async (regionName) => {
-    return axios.get(`/api/regions/search?region_name=${regionName}`);
+    return axios.get(`/api/regions/search?name=${regionName}`);
 }
 
 // 3. 평균 학사일정 조회

@@ -104,7 +104,7 @@ const ViewProvider = ({ children }) => {
                             : await searchAverageScheduleByGrade(regionName);
 
                         setSelectedRegionName(regionName);
-                        setSchedules(scheduleRes.data.data);
+                        setSchedules(scheduleRes.data);
                     }
 
                     hasInitialized.current = true; // 초기화 완료
@@ -153,7 +153,7 @@ const ViewProvider = ({ children }) => {
             const scheduleRes = grade
                 ? await searchAverageScheduleByGrade(defaultRegion, grade)
                 : await searchAverageScheduleByGrade(defaultRegion);
-            setSchedules(scheduleRes.data.data);
+            setSchedules(scheduleRes.data);
         }
 
         hasInitialized.current = true; // 초기화 완료
@@ -205,7 +205,7 @@ const ViewProvider = ({ children }) => {
                           undefined,
                           year
                       );
-                setSchedules(res.data.data);
+                setSchedules(res.data);
             }
         };
 
