@@ -49,7 +49,7 @@ const BoardRequestList = () => {
                 ) : (
                     requestList.map((req) => (
                         <div key={req.request_id} className={styles.tableRow}>
-                            <div>{req.User?.name || "알 수 없음"}</div>
+                            <div>{req.requester_name || "알 수 없음"}</div>
                             <div>{req.requested_board_name}</div>
                             <div>{req.requested_board_type}</div>
                             <div>{req.board_audience}</div>
