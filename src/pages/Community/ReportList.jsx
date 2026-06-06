@@ -122,7 +122,8 @@ const ReportList = () => {
               const parentPostId =
               isPost ? targetId : r.Comment?.post_id ?? r.post_id;
 
-              const link = `${POST_PATH}/${r.board_id}/posts/${parentPostId}` + `${!isPost ? `?comment=${targetId}` : ""}`;
+              const boardId = r.Post?.board_id;
+              const link = `${POST_PATH}/${boardId}/posts/${parentPostId}` + `${!isPost ? `?comment=${targetId}` : ""}`;
 
               /* ---- 신고자 정지 만료 ---- */
               const bannedUntil = r.User?.banned_until
