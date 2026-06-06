@@ -87,9 +87,7 @@ const ChallengeComponent = () => {
                         return null;
                     })
                     .filter(Boolean);
-                if (mapped.length > 0) {
-                    params.state = mapped[0];
-                }
+                    if (mapped.length > 0) params.state = mapped;
             }
 
             if (date) params.date = date;

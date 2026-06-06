@@ -19,7 +19,7 @@ export default function RecommendationResult() {
         }
         fetchRecommendationsByPreference()
             .then((data) =>
-                setRecommendations(Array.isArray(data?.items) ? data.items : [])
+                setRecommendations(Array.isArray(data) ? data : [])
             )
             .catch((err) => console.error("추천 로딩 실패:", err));
     }, [user]);
