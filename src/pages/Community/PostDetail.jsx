@@ -43,7 +43,7 @@ const PostDetail = () => {
 
         setPost({
           ...res.data.post,
-          comments: res.data.comments || [],
+          comments: res.data.post.comments || [],
           pagination: res.data.pagination,
         });
 
