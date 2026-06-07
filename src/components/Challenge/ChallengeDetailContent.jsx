@@ -234,7 +234,7 @@ const ChallengeDetailContent = ({
     Array.isArray(challenge.attachments) &&
     challenge.attachments.find((att) => att.attachment_type === "문서");
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://8.232.7.222";
   const STATIC_BASE = BASE_URL.replace(/\/api\/?$/, "");
 
   // 5) 삭제 & 북마크

@@ -36,7 +36,7 @@ export const updateChallengeState = (challengeId, state) => {
 
 // 7. 챌린지 참여 신청
 export const participateChallenge = (challengeId, data) => {
-  return axiosInstance.post(`/api/challenges/${challengeId}/participations`, data);
+  return axiosInstance.post(`/api/participations`, { ...data, challenge_id: challengeId });
 };
 
 
