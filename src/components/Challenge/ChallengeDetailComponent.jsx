@@ -24,15 +24,12 @@ const ChallengeDetailComponent = () => {
     const fetchDetail = async () => {
         setLoading(true);
         try {
-            const res = await getChallengeDetail(id, userId);
+            const res = await getChallengeDetail(id);
             setChallenge(res.data);
             setBookmarked(!!res.data.is_bookmarked);
 
             try {
-                const participationRes = await getParticipationDetailForUser(
-                    id,
-                    userId
-                );
+                const participationRes = await getParticipationDetailForUser(id);
                 const mp = participationRes.data?.my_participation || null;
                 if (mp) {
                     setParticipationState(mp.participating_state);

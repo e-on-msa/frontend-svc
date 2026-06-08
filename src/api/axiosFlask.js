@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const axiosFlask = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8080",
+  baseURL: import.meta.env.VITE_API_BASE_URL || "http://8.232.7.222",
   withCredentials: true,              // Gateway 세션 인증 필요
   timeout: 8000,
   headers: { "Content-Type": "application/json" },

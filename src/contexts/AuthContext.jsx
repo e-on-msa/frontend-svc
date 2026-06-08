@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import api from "../api/axiosInstance";
 
@@ -23,7 +23,7 @@ function AuthProvider({ children }) {
     }) => {
         try {
             // console.log("📦 signup axios 요청 보냄");
-            const res = await api.post("/auth/join/step3", {
+            const res = await api.post("/api/auth/join/step3", {
                 name,
                 email,
                 age,
@@ -58,13 +58,16 @@ function AuthProvider({ children }) {
 
     const login = async ({ email, password }) => {
         // console.log('🔍 로그인 요청 발생! 이메일:', email, '비번:', password);
-        const res = await api.post("/auth/login", { email, password });
+        const res = await api.post("/api/auth/login", { email, password });
         console.log('🔍 로그인 요청 발생! 이메일:', email, '비번:', password);
         console.log("💬 로그인 응답:", res.data);
         console.log("🐛 user:", res.data.user);  
         setUser(res.data.user);
         console.log("🔥 login 실행됨: ", email, password);
-
+        if (res.data.csrfToken) {
+            // axiosInstance 헤더 갱신
+            api.defaults.headers.common['X-CSRF-Token'] = res.data.csrfToken;
+        }
         localStorage.setItem("user", JSON.stringify(res.data.user));
         toast(`${res.data.user.name}님, 환영합니다!`, {
             icon: "💜",
@@ -81,7 +84,7 @@ function AuthProvider({ children }) {
     };
 
     const logout = async () => {
-        await api.post("/auth/logout");
+        await api.post("/api/auth/logout");
         setUser(null);
 
         localStorage.removeItem("user");
@@ -101,7 +104,7 @@ function AuthProvider({ children }) {
     useEffect(() => {
         const fetchMe = async () => {
             try {
-                const res = await api.get("/api/user/me"); // ✅ 변경된 경로
+                const res = await api.get("/api/user/me");
                 setUser(res.data.user);
 
                 // ✅ localStorage에 저장
@@ -146,3 +149,7 @@ function AuthProvider({ children }) {
 }
 
 export default AuthProvider;
+
+export const useAuth = () => {
+    return useContext(AuthContext);
+};

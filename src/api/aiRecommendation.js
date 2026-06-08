@@ -1,9 +1,7 @@
 // src/api/aiRecommendation.js
-import axios from 'axios';
+import axios from './axiosInstance';
 
 export const fetchAIRecommendations = async () => {
-  const response = await axios.get('/api/recommend', {
-    withCredentials: true, // 로그인 세션 유지
-  });
+  const response = await axios.get('/api/recommendations/recommend');
   return response.data;
 };

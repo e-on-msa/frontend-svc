@@ -23,32 +23,48 @@ export default function ActivityHistory() {
   const [err, setErr] = useState("");
 
   const fetchData = async () => {
-    setLoading(true);
-    setErr("");
-    try {
-      const res = await axios.get("/api/user/activity-history", {
-        params: {
-          type,
-          from: from || undefined,
-          to: to || undefined,
-          keyword: keyword || undefined,
-          page,
-          limit,
-        },
-      });
+      setLoading(true);
+      setErr("");
+      try {
+          let res;
 
-      // 백엔드 응답 형식: { data: [], totalPages: N } 가정
-      setData(res.data.data || []);
-      setTotalPages(res.data.totalPages || 1);
-    } catch (e) {
-      setErr(e?.response?.data?.message || "활동 이력 조회 실패");
-    } finally {
-      setLoading(false);
-    }
+          if (type === "challenge") {
+              // 배열 직접 반환
+              res = await axios.get("/api/participations");
+              setData(Array.isArray(res.data) ? res.data : []);
+              setTotalPages(1); // 페이징 없음
+
+          } else if (type === "challengeCreated") {
+              res = await axios.get("/api/challenges/my/created", {
+                  params: {
+                      from: from || undefined,
+                      to: to || undefined,
+                      keyword: keyword || undefined,
+                      page,
+                      limit,
+                  }
+              });
+              setData(res.data.challenges || []);
+              setTotalPages(res.data.totalPages || 1);
+
+          } else {
+              // post, comment, boardRequest → community-svc
+              res = await axios.get(`/api/activities/internal/user/${user.user_id}`, {
+                  params: { type, page, limit }
+              });
+              setData(res.data.data || []);
+              setTotalPages(res.data.totalPages || 1);
+          }
+
+      } catch (e) {
+          setErr(e?.response?.data?.message || "활동 이력 조회 실패");
+      } finally {
+          setLoading(false);
+      }
   };
 
   // 페이지 바뀔 때마다 조회
-  useEffect(() => { fetchData(); /* eslint-disable-next-line */ }, [page]);
+  useEffect(() => { fetchData(); }, [page, type]);
 
   // 필터 적용 → 1페이지부터 다시 조회
   const applyFilters = () => {
@@ -109,18 +125,10 @@ export default function ActivityHistory() {
                 <li key={i} style={{ marginBottom: "1rem", border: "1px solid #eee", borderRadius: 12, padding: 12 }}>
                   {/* 각 타입별 렌더링 */}
                   {type === "challenge" && (
-                    <div>
-                      <strong>{item.Challenge?.title}</strong> <br />
-                      참여 상태: {item.participating_state} <br />
-                      기간:{" "}
-                      {item.Challenge?.start_date
-                        ? new Date(item.Challenge.start_date).toLocaleDateString("ko-KR")
-                        : "-"}{" "}
-                      ~{" "}
-                      {item.Challenge?.end_date
-                        ? new Date(item.Challenge.end_date).toLocaleDateString("ko-KR")
-                        : "-"}
-                    </div>
+                      <div>
+                          <strong>{item.challenge_id}번 챌린지</strong><br />
+                          참여 상태: {item.participating_state}
+                      </div>
                   )}
 
                   {type === "post" && (
@@ -156,17 +164,16 @@ export default function ActivityHistory() {
                   )}
 
                   {type === "challengeCreated" && (
-                    <div>
-                      <h4 style={{ margin: "0 0 6px" }}>{item.challenge_title}</h4>
-                      <p>상태: {item.challenge_state}</p>
-                      <p>
-                        기간:{" "}
-                        {item.start_date ? new Date(item.start_date).toLocaleDateString("ko-KR") : "-"} ~{" "}
-                        {item.end_date ? new Date(item.end_date).toLocaleDateString("ko-KR") : "-"}
-                      </p>
-                      <p>작성일: {item.created_at ? new Date(item.created_at).toLocaleString("ko-KR") : ""}</p>
-                      <p>개설자: {item.creator?.nickname}</p>
-                    </div>
+                      <div>
+                          <h4 style={{ margin: "0 0 6px" }}>{item.title}</h4>  {/* challenge_title → title */}
+                          <p>상태: {item.challenge_state}</p>
+                          <p>
+                              기간:{" "}
+                              {item.start_date ? new Date(item.start_date).toLocaleDateString("ko-KR") : "-"} ~{" "}
+                              {item.end_date ? new Date(item.end_date).toLocaleDateString("ko-KR") : "-"}
+                          </p>
+                          <p>작성일: {item.created_at ? new Date(item.created_at).toLocaleString("ko-KR") : ""}</p>
+                      </div>
                   )}
                 </li>
               ))}

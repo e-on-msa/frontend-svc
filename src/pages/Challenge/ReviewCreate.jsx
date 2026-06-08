@@ -10,13 +10,12 @@ const ReviewCreate = () => {
   const { challengeId } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const { user, loading: authLoading } = useAuth();
+  const { loading: authLoading } = useAuth();
 
   const handleCreate = async ({ rating_stars, text }) => {
     setLoading(true);
     try {
       await createReview(challengeId, {
-        user_id: user.user_id,
         rating_stars,
         text,
       });

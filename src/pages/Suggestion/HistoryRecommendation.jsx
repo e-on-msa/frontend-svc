@@ -10,7 +10,7 @@ export default function HistoryRecommendation() {
     const navigate = useNavigate();
 
     const API =
-        (import.meta.env.VITE_API_BASE_URL || "") + "/api/ai/recommend/history";
+        (import.meta.env.VITE_API_BASE_URL || "") + "/api/recommendations/recommend/history";
 
     // 응답 아이템 정규화: id/title/description 통일
     const normalize = (x) => ({
@@ -30,7 +30,7 @@ export default function HistoryRecommendation() {
                 setLoading(true);
                 setErr("");
                 const { data } = await axiosInstance.post(
-                    "/api/ai/recommend/history", // Node.js 라우터
+                    "/api/recommendations/recommend/history",
                     {}, // 로그인 유저 기준
                     { withCredentials: true }
                 );

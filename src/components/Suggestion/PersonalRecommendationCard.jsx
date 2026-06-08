@@ -4,8 +4,8 @@ import styles from "./RecommendationCard.module.css";
 const PersonalRecommendationCard = ({ challenge }) => {
   const {
     challenge_id,
-    challenge_title,
-    challenge_description,
+    title,
+    description,
     start_date,
     application_deadline,
     end_date,
@@ -22,8 +22,8 @@ const navigate = useNavigate();
     <div className={styles.card} onClick={handleClick} style={{ cursor: "pointer" }}>
 
       <div className={styles.cardHeader}>
-        <h3>{challenge_title}</h3>
-        <p>{challenge_description}</p>
+        <h3>{title}</h3>
+        <p>{description}</p>
       </div>
       <div className={styles.imageBox}>
         {image_url ? (

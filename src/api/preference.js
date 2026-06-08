@@ -26,8 +26,8 @@ export const getVisionsByCategory = async (categoryCode) => {
 };
 
 // 기존 POST → GET 변경 + userId 직접 파라미터에 넣기
-export const fetchRecommendationsByPreference = async (userId) => {
-  const res = await axios.get(`/api/recommendations/${userId}`);
+export const fetchRecommendationsByPreference = async () => {
+  const res = await axios.get(`/api/recommendations/recommend`);
   return res.data;
 };
 

@@ -17,6 +17,7 @@ import RecommendationResult from "../pages/Suggestion/RecommendationResult";
 import RecommendEntry from "../pages/Suggestion/RecommendEntry";
 import RecommendSelect from "../pages/Suggestion/RecommendSelect";
 import HistoryRecommendation from "../pages/Suggestion/HistoryRecommendation";
+import TimeRecommendation from "../pages/Suggestion/TimeRecommendation";
 
 // Challenge
 import Challenge from "../pages/Challenge/Challenge";
@@ -90,20 +91,14 @@ const AppRoutes = () => {
                 element={<ReviewEdit />}
             />
 
-            {/* Recommend (새 흐름) */}
-            {/* <Route path="/recommend" element={<RecommendEntry />} />
-            <Route path="/recommend/select" element={<RecommendSelect />} />
-            <Route path="/recommend/time" element={<TimeRecommendation />} />
-            <Route path="/recommend/profile" element={<RecommendationResult />} />
-            <Route path="/recommend/history" element={<HistoryRecommendation />} /> */}
-
-            {/* Recommend (새 흐름) */}
+            {/* Recommend */}
             <Route path="/recommend" element={<RecommendEntry />} />
 
             {/* Recommend Select 내부 라우팅 */}
             <Route path="/recommend/select" element={<RecommendSelect />}>
                 <Route path="profile" element={<RecommendationResult />} />
                 <Route path="history" element={<HistoryRecommendation />} />
+                <Route path="time" element={<TimeRecommendation />} />
             </Route>
 
             {/* Onboarding (이전 suggestion 경로 정리) */}
@@ -123,7 +118,7 @@ const AppRoutes = () => {
             />
             <Route
                 path="/recommendation/time"
-                element={<Navigate to="/recommend/time" replace />}
+                element={<Navigate to="/recommend/select/time" replace />}
             />
             <Route
                 path="/suggestion/preferences"
@@ -137,7 +132,7 @@ const AppRoutes = () => {
             />
             <Route
                 path="/suggestion/recommendation"
-                element={<Navigate to="/recommend/profile" replace />}
+                element={<Navigate to="/recommend/select/profile" replace />}
             />
 
             {/* Community */}
@@ -150,7 +145,7 @@ const AppRoutes = () => {
                 path="/community/:board_id/edit"
                 element={<CommunityEdit />}
             />
-            <Route path="/community/posts/:post_id" element={<PostDetail />} />
+            <Route path="/community/:board_id/posts/:post_id" element={<PostDetail />} />
             <Route
                 path="/community/board-requests"
                 element={<BoardRequestPage />}

@@ -14,8 +14,8 @@ export const getChallengeList = (params) => {
 };
 
 // 3. 챌린지 상세 조회
-export const getChallengeDetail = (challengeId, userId) => {
-  return axiosInstance.get(`/api/challenges/${challengeId}`, { params: { user_id: userId } });
+export const getChallengeDetail = (challengeId) => {
+  return axiosInstance.get(`/api/challenges/${challengeId}`);
 };
 
 // 4. 챌린지 수정
@@ -36,7 +36,7 @@ export const updateChallengeState = (challengeId, state) => {
 
 // 7. 챌린지 참여 신청
 export const participateChallenge = (challengeId, data) => {
-  return axiosInstance.post(`/api/challenges/${challengeId}/participations`, data);
+  return axiosInstance.post(`/api/participations`, { ...data, challenge_id: challengeId });
 };
 
 
@@ -50,10 +50,8 @@ export const getParticipationDetail = (participationId) => {
   return axiosInstance.get(`/api/participations/${participationId}`);
 };
 
-export const getParticipationDetailForUser = (challengeId, userId) => {
-  return axiosInstance.get(`/api/challenges/${challengeId}`, {
-    params: { user_id: userId }
-  });
+export const getParticipationDetailForUser = (challengeId) => {
+  return axiosInstance.get(`/api/challenges/${challengeId}`);
 };
 
 // 9. 챌린지 출석 기록 조회
@@ -100,13 +98,13 @@ export const deleteReview = (reviewId) => {
 };
 
 // 17. 챌린지 북마크 추가
-export const addBookmark = (challengeId, userId) => {
-  return axiosInstance.post(`/api/challenges/${challengeId}/bookmarks`, { user_id: userId });
+export const addBookmark = (challengeId) => {
+  return axiosInstance.post(`/api/challenges/${challengeId}/bookmarks`);
 };
 
 // 18. 북마크 해제
-export const removeBookmark = (challengeId, userId) => {
-  return axiosInstance.delete(`/api/challenges/${challengeId}/bookmarks`, { data: { user_id: userId } });
+export const removeBookmark = (challengeId) => {
+  return axiosInstance.delete(`/api/challenges/${challengeId}/bookmarks`);
 };
 
 // 19. 첨부파일 업로드 (multipart/form-data)
@@ -127,20 +125,16 @@ export const deleteAttachment = (attachmentId) => {
 };
 
 // 22. 최근 7일 이내 결석 체크
-export const checkAbsence = (userId) => {
-  return axiosInstance.get('/api/attendances/check-absence', { params: { user_id: userId } });
+export const checkAbsence = () => {
+  return axiosInstance.get('/api/attendances/check-absence');
 };
 
 // 23. 내가 신청한 챌린지
-export const getMyParticipatedChallenges = (userId) => {
-  return axiosInstance.get('/api/challenges/my/participated', {
-    params: { user_id: userId }
-  });
+export const getMyParticipatedChallenges = (params = {}) => {
+  return axiosInstance.get('/api/challenges/my/participated', { params });
 };
 
 // 24. 내가 개설한 챌린지
-export const getMyCreatedChallenges = (userId) => {
-  return axiosInstance.get('/api/challenges/my/created', {
-    params: { user_id: userId }
-  });
+export const getMyCreatedChallenges = (params = {}) => {
+  return axiosInstance.get('/api/challenges/my/created', { params });
 };

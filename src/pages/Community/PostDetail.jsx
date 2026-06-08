@@ -14,10 +14,10 @@ import CommentItem from "../../components/Community/CommentItem";
 import styles from "../../styles/Community/PostDetail.module.css";
 import { toast } from "react-toastify";
 
-const API = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+const API = import.meta.env.VITE_API_BASE_URL || "http://8.232.7.222";
 
 const PostDetail = () => {
-    const { post_id } = useParams();
+    const { board_id, post_id } = useParams();
     const navigate = useNavigate();
     const { user, isBanned, bannedUntil } = useAuth();
 
@@ -38,20 +38,26 @@ const PostDetail = () => {
 
     // ───────── 게시글 가져오기 ─────────
     const fetchPost = async () => {
-        try {
-        const res = await getPost(post_id);
-        setPost(res.data);
-        setExistingImgs(res.data.images || []);           // ⭐
+      try {
+        const res = await getPost(board_id, post_id);
+
+        setPost({
+          ...res.data.post,
+          comments: res.data.post.comments || [],
+          pagination: res.data.pagination,
+        });
+
+        setExistingImgs(res.data.post.images || []);
         setRemovedIds([]);
         setNewFiles([]);
-        } catch (err) {
+      } catch (err) {
         console.error("게시글 불러오기 실패:", err);
-        }
+      }
     };
 
     useEffect(() => {
         fetchPost();
-    }, [post_id]);
+    }, [board_id, post_id]);
 
     // ───────── 이미지 관련 핸들러 ─────────
     const handleFileChange = (e) => {
@@ -128,7 +134,7 @@ const PostDetail = () => {
       }
         try {
             setIsSubmitting(true);
-            await createComment(post.post_id, { content: newComment });
+            await createComment(board_id, post.post_id, { content: newComment })
             setNewComment("");
             fetchPost();                         // 새 댓글 반영
         } catch (err) {
@@ -141,7 +147,7 @@ const PostDetail = () => {
 
     
     if (!post) return <div className={styles.loading}>불러오는 중...</div>;
-    const commentTree = buildCommentTree(post.Comments || []);
+    const commentTree = buildCommentTree(post.comments || []);
 
   return (
     <div className={styles.container}>
@@ -208,7 +214,7 @@ const PostDetail = () => {
           </div>
 
           <div className={styles.meta}>
-            <span className={styles.author}>{post.User?.name}</span>
+            <span className={styles.author}>{post.author_name}</span>
             <span className={styles.date}>
               {new Date(post.created_at).toLocaleString()}
             </span>
@@ -317,6 +323,7 @@ const PostDetail = () => {
                 <CommentItem
                   key={c.comment_id}
                   comment={c}
+                  boardId={board_id}
                   postId={post.post_id}
                   user={user}
                   fetchPost={fetchPost}

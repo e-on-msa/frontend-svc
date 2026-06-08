@@ -2,35 +2,35 @@ import axios from "./axiosInstance";
 
 // 1. 학교 이름으로 학교 이름 조회
 export const searchSchoolsByName = async (schoolName) => {
-    return axios.get(`/schoolSchedule/schools?query=${schoolName}`);
+    return axios.get(`/api/schoolSchedule/schools?query=${schoolName}`);
 };
 
 // 1-1. 행정표준코드로 학교 조회
 export const searchSchoolBySchoolCode = async (schoolCode) => {
-    return axios.get(`/schoolSchedule/schools/code?query=${schoolCode}`);
+    return axios.get(`/api/schoolSchedule/schools/code?query=${schoolCode}`);
 }
 
 // 2. 학교 ID로 올해의 전체 학사일정 조회 (서울)
 export const getSchoolSchedule = async (schoolId) => {
-    return axios.get(`/schoolSchedule/schools/${schoolId}/schedule`);
+    return axios.get(`/api/schoolSchedule/schools/${schoolId}/schedule`);
 };
 
 // 3. 학교 ID로 올해의 학년별 학사일정 조회 (서울)
 export const getSchoolScheduleByGrade = async (schoolId, grade) => {
     return axios.get(
-        `/schoolSchedule/schools/${schoolId}/schedule?grade=${grade}`
+        `/api/schoolSchedule/schools/${schoolId}/schedule?grade=${grade}`
     );
 };
 
 // 4. 학교 ID로 작년의 전체 학사일정 조회
 export const getPrevSchoolSchedule = async (schoolId) => {
-    return axios.get(`/schoolSchedule/schools/${schoolId}/schedule?year=prev`);
+    return axios.get(`/api/schoolSchedule/schools/${schoolId}/schedule?year=prev`);
 };
 
 // 5. 학교 ID로 작년의 학년별 학사일정 조회
 export const getPrevSchoolScheduleByGrade = async (schoolId, grade) => {
     return axios.get(
-        `/schoolSchedule/schools/${schoolId}/schedule?year=prev&grade=${grade}`
+        `/api/schoolSchedule/schools/${schoolId}/schedule?year=prev&grade=${grade}`
     );
 };
 
@@ -42,26 +42,25 @@ export const getAllSchoolSchedule = async (schoolId, atptCode, year, grade) => {
     if (grade) params.grade = grade;
 
     return axios.get(
-        `/schoolSchedule/schools/${schoolId}/${atptCode}/schedule`,
+        `/api/schoolSchedule/schools/${schoolId}/${atptCode}/schedule`,
         { params }
     );
 };
 
 // 7. 나의 학교 저장
-export const saveMySchool = async (userId, type, code) => {
-    return axios.post("/mySchool/save", {
-        userId,
+export const saveMySchool = async (type, code) => {
+    return axios.post("/api/mySchool/save", {
         type,
         code: String(code),
     });
 };
 
 // 8. 나의 학교 삭제
-export const deleteMySchool = async (userId, type) => {
-    return axios.post("/mySchool/delete", { userId, type });
+export const deleteMySchool = async (type) => {
+    return axios.post("/api/mySchool/delete", { type });
 };
 
 // 9. 나의 학교 조회
 export const getMySchool = async (type) => {
-    return axios.get("/mySchool/get", { params: { type } });
+    return axios.get("/api/mySchool/get", { params: { type } });
 };

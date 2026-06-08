@@ -68,7 +68,6 @@ const ChallengeComponent = () => {
             const params = {
                 page: currentPage,
                 limit: itemsPerPage,
-                user_id: userId,
             };
 
             if (search) {
@@ -88,9 +87,7 @@ const ChallengeComponent = () => {
                         return null;
                     })
                     .filter(Boolean);
-                if (mapped.length > 0) {
-                    params.state = mapped[0];
-                }
+                    if (mapped.length > 0) params.state = mapped;
             }
 
             if (date) params.date = date;
@@ -133,7 +130,7 @@ const ChallengeComponent = () => {
             return;
         }
         try {
-            const res = await checkAbsence(userId);
+            const res = await checkAbsence();
             if (res.data.hasAbsence) {
                 toast(
                     "최근 1주일 내 결석 기록이 있어 챌린지 개설이 제한됩니다.",
@@ -194,18 +191,14 @@ const ChallengeComponent = () => {
                 if (participationId && participationState === "취소") {
                     await cancelParticipation(participationId);
                     await new Promise((res) => setTimeout(res, 200));
-                    await participateChallenge(challenge_id, {
-                        user_id: userId,
-                    });
+                    await participateChallenge(challenge_id, {});
                     toast("참여가 완료되었습니다!", {
                         icon: "💜",
                         className: "my-toast",
                         progressClassName: "custom-progress-bar",
                     });
                 } else {
-                    await participateChallenge(challenge_id, {
-                        user_id: userId,
-                    });
+                    await participateChallenge(challenge_id, {});
                     toast("참여가 완료되었습니다!", {
                         icon: "💜",
                         className: "my-toast",

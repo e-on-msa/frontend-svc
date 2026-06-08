@@ -68,7 +68,7 @@ const MySchoolManagement = () => {
 
     const handleConfirm = async (type, code) => {
         try {
-            await saveMySchool(userId, type, code);
+            await saveMySchool(type, code);
             closeModal();
             fetchData();
 
@@ -90,7 +90,7 @@ const MySchoolManagement = () => {
 
     const handleDelete = async (type) => {
         try {
-            await deleteMySchool(userId, type);
+            await deleteMySchool(type);
             toast(
                 `${
                     type === "school" ? "학교별" : "지역별"

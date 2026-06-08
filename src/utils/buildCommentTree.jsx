@@ -3,7 +3,7 @@ export function buildCommentTree(comments) {
   const tree = [];
 
   comments.forEach(comment => {
-    comment.replies = [];
+    comment.replies = comment.Replies || [];
     map[comment.comment_id] = comment;
   });
 

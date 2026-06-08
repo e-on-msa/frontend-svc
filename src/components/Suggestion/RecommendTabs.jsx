@@ -8,9 +8,9 @@ export default function RecommendTabs() {
   const location = useLocation();
 
   const tabs = [
-    { path: "/recommend/time", label: "학년·월별 추천", icon: <FaCalendarAlt /> },
-    { path: "/recommend/profile", label: "내 프로필 맞춤", icon: "🙌" },
-    { path: "/recommend/history", label: "활동 기록 맞춤", icon: "📜" },
+    { path: "/recommend/select/time", label: "학년·월별 추천", icon: <FaCalendarAlt /> },
+    { path: "/recommend/select/profile", label: "내 프로필 맞춤", icon: "🙌" },
+    { path: "/recommend/select/history", label: "활동 기록 맞춤", icon: "📜" },
   ];
 
   return (

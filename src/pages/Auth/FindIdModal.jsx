@@ -20,7 +20,7 @@ export default function FindIdModal({ onClose }) {
   const handleSubmit = async () => {
     setError("");
     try {
-      const res = await axios.post("/auth/find-id", { name, age });
+      const res = await axios.post("/api/auth/find-id", { name, age });
       setEmailList(res.data.emails);
       setStep(1);
     } catch (err) {
@@ -44,7 +44,7 @@ export default function FindIdModal({ onClose }) {
   const sendCode = async (emailAddr) => {
     setError("");
     try {
-      await axios.post("/auth/find-id/send-code-to-email", { email: emailAddr });
+      await axios.post("/api/auth/find-id/send-code-to-email", { email: emailAddr });
       setMessage("인증 코드가 전송되었습니다.");
       setRemainingTime(300);
       setTimerActive(true);
@@ -62,7 +62,7 @@ export default function FindIdModal({ onClose }) {
       return;
     }
     try {
-      const res = await axios.post("/auth/find-id/verify-code", {
+      const res = await axios.post("/api/auth/find-id/verify-code", {
         email: selectedEmail,
         code,
       });
