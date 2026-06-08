@@ -29,10 +29,8 @@ const MySchoolManagement = () => {
             ]);
 
             if (schoolRes.data?.code) {
-                const school = await searchSchoolBySchoolCode(
-                    schoolRes.data.code
-                );
-                setSchool(school?.data[0]?.name || null);
+                const school = await searchSchoolBySchoolCode(schoolRes.data.code);
+                setSchool(school?.data?.name || null);
             } else {
                 setSchool(null);
             }
@@ -54,7 +52,7 @@ const MySchoolManagement = () => {
 
     useEffect(() => {
         fetchData();
-    }, [userId, school, region]);
+    }, [userId]);
 
     const openSearchModal = (type) => {
         setModalType(type);
