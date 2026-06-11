@@ -87,7 +87,11 @@ const ChallengeComponent = () => {
                         return null;
                     })
                     .filter(Boolean);
-                    if (mapped.length > 0) params.state = mapped;
+                    if (mapped.length === 1) {
+                        params.state = mapped[0];  // 하나면 그냥 문자열
+                    } else if (mapped.length > 1) {
+                        params.state = mapped;     // 여러 개면 배열 (axios가 ?state=ACTIVE&state=CLOSED로 변환)
+                    }
             }
 
             if (date) params.date = date;
