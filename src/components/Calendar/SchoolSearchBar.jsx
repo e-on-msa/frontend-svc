@@ -43,7 +43,7 @@ const SchoolSearchBar = () => {
                 setSuggestions(
                     searchType.type === "school"
                         ? res.data
-                        : res.data.data.regions
+                        : res.data.data
                 );
 
                 // console.log("suggestions: ", suggestions);
@@ -129,7 +129,7 @@ const SchoolSearchBar = () => {
                 setSelectedValue(region_name); // 여기서만 selectedValue 직접 세팅
                 setSchedules(res.data); // 여기서만 schedules 직접 세팅
 
-                const regionCode = res.data[0].region_id;
+                const regionCode = res.data[0]?.regionId;
                 console.log("regionCode: ", regionCode);
                 setCurrentSchoolCode({ code: regionCode, type: "region" });
 
