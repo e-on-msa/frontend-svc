@@ -63,8 +63,8 @@ const MonthlyView = () => {
                     const filteredEvents = schedules.filter((schedule) => {
                         if (searchType.type === "region") {
                             return (
-                                schedule.average_date === targetDate &&
-                                schedule.school_type === searchType.schoolType
+                                schedule.averageDate === targetDate &&
+                                schedule.schoolType === searchType.schoolType
                             );
                         } else {
                             return schedule.AA_YMD === targetDate;
@@ -85,11 +85,11 @@ const MonthlyView = () => {
                                         <EventBadge
                                             key={`${targetDate}-${
                                                 event.EVENT_NM ||
-                                                event.event_name
+                                                event.eventName
                                             }`}
                                             event_name={
                                                 event.EVENT_NM ||
-                                                event.event_name
+                                                event.eventName
                                             }
                                         />
                                     ))}

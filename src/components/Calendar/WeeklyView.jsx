@@ -39,8 +39,8 @@ const WeeklyView = () => {
                     schedules.filter((schedule) => {
                         if (searchType.type === "region") {
                             return (
-                                schedule.average_date === targetDate &&
-                                schedule.school_type === searchType.schoolType
+                                schedule.averageDate === targetDate &&
+                                schedule.schoolType === searchType.schoolType
                             );
                         } else {
                             return schedule.AA_YMD === targetDate;
@@ -64,7 +64,7 @@ const WeeklyView = () => {
                                             event.AA_YMD
                                         }
                                         event_name={
-                                            event.event_name || event.EVENT_NM
+                                            event.eventName || event.EVENT_NM
                                         }
                                     />
                                 ))}

@@ -25,7 +25,7 @@ const AcademicEventsList = () => {
             .filter((event) => {
                 const dateStr =
                     searchType.type === "region"
-                        ? event.average_date
+                        ? event.averageDate
                         : event.AA_YMD;
 
                 const eventDate =
@@ -42,7 +42,7 @@ const AcademicEventsList = () => {
 
                 const isCorrectSchoolType =
                     searchType.type === "region"
-                        ? event.school_type === searchType.schoolType
+                        ? event.schoolType === searchType.schoolType
                         : true;
 
                 return isInMonth && isCorrectSchoolType;
@@ -50,11 +50,11 @@ const AcademicEventsList = () => {
             .sort((a, b) => {
                 const aDate =
                     searchType.type === "region"
-                        ? dayjs(a.average_date)
+                        ? dayjs(a.averageDate)
                         : dayjs(a.AA_YMD, "YYYYMMDD");
                 const bDate =
                     searchType.type === "region"
-                        ? dayjs(b.average_date)
+                        ? dayjs(b.averageDate)
                         : dayjs(b.AA_YMD, "YYYYMMDD");
 
                 return aDate.unix() - bDate.unix();
@@ -68,7 +68,7 @@ const AcademicEventsList = () => {
         filteredEvents.forEach((event) => {
             const dateStr =
                 searchType.type === "region"
-                    ? event.average_date
+                    ? event.averageDate
                     : event.AA_YMD;
 
             const eventDate =
@@ -83,7 +83,7 @@ const AcademicEventsList = () => {
             }
 
             grouped[day].push({
-                name: event.event_name || event.EVENT_NM,
+                name: event.eventName || event.EVENT_NM,
                 fullDate: eventDate,
             });
         });

@@ -21,8 +21,8 @@ const MySchoolModal = ({ type, onClose, onConfirm }) => {
                 // console.log(res?.data);
             } else {
                 const res = await searchRegionByName(keyword);
-                setResults(res?.data.data.regions || []);
-                console.log(res?.data.data.regions);
+                setResults(res?.data.data || []);
+                console.log(res?.data.data);
             }
             setAfterSearch(true);
         } catch (error) {
@@ -34,7 +34,7 @@ const MySchoolModal = ({ type, onClose, onConfirm }) => {
         const isSame =
             type === "school"
                 ? selectedItem?.schoolCode === item.schoolCode
-                : selectedItem?.region_id === item.region_id;
+                : selectedItem?.id === item.id;
 
         setSelectedItem(isSame ? null : item);
     };
@@ -44,7 +44,7 @@ const MySchoolModal = ({ type, onClose, onConfirm }) => {
             const code =
                 type === "school"
                     ? selectedItem.schoolCode
-                    : selectedItem.region_id;
+                    : selectedItem.id;
             onConfirm(type, code);
         } else {
             toast.error(
@@ -133,14 +133,14 @@ const MySchoolModal = ({ type, onClose, onConfirm }) => {
                                         type === "school"
                                             ? selectedItem?.schoolCode ===
                                               item.schoolCode
-                                            : selectedItem?.region_id ===
-                                              item.region_id;
+                                            : selectedItem?.id ===
+                                              item.id;
 
                                     return (
                                         <tr
                                             key={
                                                 item.schoolCode ||
-                                                item.region_id
+                                                item.id
                                             }
                                             onClick={() => handleSelect(item)}
                                             className={
@@ -149,7 +149,7 @@ const MySchoolModal = ({ type, onClose, onConfirm }) => {
                                                     : ""
                                             }>
                                             <td>
-                                                {item.name || item.region_id}
+                                                {item.name || item.id}
                                             </td>
                                             <td>
                                                 {item.address ||
