@@ -1,11 +1,13 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import qs from 'qs';
 
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL || "http://8.232.7.222",
     withCredentials: true,
     timeout: 5000,
     headers: { "Content-Type": "application/json" },
+    paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
 });
 
 /** ─────────────────────────────────────────────
