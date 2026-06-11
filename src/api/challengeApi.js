@@ -42,7 +42,7 @@ export const participateChallenge = (challengeId, data) => {
 
 // 8. 챌린지 참여 취소
 export const cancelParticipation = (participationId, data) => {
-  return axiosInstance.patch(`/api/participations/${participationId}`, data);
+  return axiosInstance.patch(`/api/participations/${participationId}/cancel`, data);
 };
 
 // 8+. 챌린지 참여 조회

@@ -13,7 +13,7 @@ const ChooseInterest = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategoryCode, setSelectedCategoryCode] = useState(null);
     const [categoryInterests, setCategoryInterests] = useState({}); // { catCode: [interests] }
-    const [selectedInterests, setSelectedInterests] = useState({}); // { catCode: [interest_detail] }
+    const [selectedInterests, setSelectedInterests] = useState({}); // { catCode: [name] }
 
     // 카테고리 가져오기
     useEffect(() => {
@@ -108,7 +108,7 @@ const ChooseInterest = () => {
         // 모든 캐시를 평탄화해서 detail -> id 인덱스 생성
         const allItems = Object.values(categoryInterests).flat();
         const detailToId = new Map(
-            allItems.map((i) => [i.interest_detail, i.interest_id])
+            allItems.map((i) => [i.name, i.id])
         );
 
         const interestIds = flatDetails
@@ -157,21 +157,21 @@ const ChooseInterest = () => {
                     {categoryInterests[selectedCategoryCode]?.map(
                         (interest) => (
                             <button
-                                key={interest.interest_detail}
+                                key={interest.name}
                                 className={`${styles.detailBtn} ${
                                     selectedInterests[
                                         selectedCategoryCode
-                                    ]?.includes(interest.interest_detail)
+                                    ]?.includes(interest.name)
                                         ? styles.selected
                                         : ""
                                 }`}
                                 onClick={() =>
                                     toggleInterest(
                                         selectedCategoryCode,
-                                        interest.interest_detail
+                                        interest.name
                                     )
                                 }>
-                                {interest.interest_detail}
+                                {interest.name}
                             </button>
                         )
                     )}

@@ -40,7 +40,11 @@ const ChallengeCreateForm = ({
     );
     const [days, setDays] = useState(initialData.days || []);
     const [phone, setPhone] = useState(initialData.phone || "");
-    const [status, setStatus] = useState(initialData.status || "모집중");
+    const [status, setStatus] = useState(
+    initialData.challenge_state === "ACTIVE" ? "모집중" :
+    initialData.challenge_state === "CLOSED" ? "마감" :
+    initialData.challenge_state === "CANCELLED" ? "취소됨" : "모집중"
+    );
 
     // (C) 편집 모드: 기존 첨부파일 보여주기
     const [initialAttachments, setInitialAttachments] = useState([]);
@@ -60,10 +64,10 @@ const ChallengeCreateForm = ({
     // ────────────────── 2) 관심사/진로 옵션 불러오기 ──────────────────
     useEffect(() => {
         axiosInstance
-            .get("api/interests")
+            .get("/api/interests")
             .then((res) => setInterestOptions(res.data));
         axiosInstance
-            .get("api/visions")
+            .get("/api/visions")
             .then((res) => setVisionOptions(res.data));
     }, []);
 
@@ -133,10 +137,8 @@ const ChallengeCreateForm = ({
             );
             setPhone(initialData.phone || initialData.creator_contact || "");
             setStatus(
-                initialData.status ||
-                    engToKor[initialData.challenge_state] ||
-                    initialData.challenge_state ||
-                    "모집중"
+                engToKor[initialData.challenge_state] ||
+                "모집중"
             );
 
             setInterestIds(
@@ -244,7 +246,9 @@ const ChallengeCreateForm = ({
             visionIds: visionIds,
             creator_contact: phone,
             ...(isEdit && {
-                challenge_state: status === "모집중" ? "ACTIVE" : "CLOSED",
+                challenge_state:
+                    status === "모집중" ? "ACTIVE" :
+                    status === "취소됨" ? "CANCELLED" : "CLOSED",
             }),
         };
 
@@ -711,10 +715,7 @@ const ChallengeCreateForm = ({
                                             gap: 8,
                                         }}>
                                         <a
-                                            href={`${import.meta.env.VITE_API_BASE_URL.replace(
-                                                /\/api\/?$/,
-                                                ""
-                                            )}${att.url}`}
+                                            href={`${(import.meta.env.VITE_API_BASE_URL || "http://8.232.7.222").replace(/\/api\/?$/, "")}${att.url}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             style={{

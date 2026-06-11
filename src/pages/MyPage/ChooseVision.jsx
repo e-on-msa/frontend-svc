@@ -13,7 +13,7 @@ const ChooseVision = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategoryCode, setSelectedCategoryCode] = useState(null);
     const [categoryVisions, setCategoryVisions] = useState({}); // { [category_code]: VisionItem[] }
-    const [selectedVisions, setSelectedVisions] = useState({}); // { [category_code]: string[] }  -> vision_detail 배열
+    const [selectedVisions, setSelectedVisions] = useState({}); // { [category_code]: string[] }  -> name 배열
 
     // 카테고리 가져오기
     useEffect(() => {
@@ -59,7 +59,7 @@ const ChooseVision = () => {
         // 모든 캐시에서 detail -> id 매핑 테이블 생성
         const allVisions = Object.values(categoryVisions).flat();
         const detailToId = new Map(
-            allVisions.map((v) => [v.vision_detail, v.vision_id])
+            allVisions.map((v) => [v.name, v.id])
         );
 
         const visionIds = flatDetails
@@ -102,10 +102,10 @@ const ChooseVision = () => {
                 <div className={styles.column}>
                     {categoryVisions[selectedCategoryCode]?.map((vision) => (
                         <button
-                            key={vision.vision_detail}
+                            key={vision.name}
                             className={`${styles.detailBtn} ${
                                 selectedVisions[selectedCategoryCode]?.includes(
-                                    vision.vision_detail
+                                    vision.name
                                 )
                                     ? styles.selected
                                     : ""
@@ -113,10 +113,10 @@ const ChooseVision = () => {
                             onClick={() =>
                                 toggleVision(
                                     selectedCategoryCode,
-                                    vision.vision_detail
+                                    vision.name
                                 )
                             }>
-                            {vision.vision_detail}
+                            {vision.name}
                         </button>
                     ))}
                 </div>
